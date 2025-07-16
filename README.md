@@ -12,7 +12,7 @@ One-click **FREE** deployment with zero maintenance required.
 
 <br/>
 
-[![🚀 Try Live Configuration Tool 🚀](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Try%20Live%20Tool)](https://github-visitor-counter-zeta.vercel.app)
+[![🚀 Try Live Configuration Tool 🚀](https://gradient-svg-generator.vercel.app/api/svg?text=%F0%9F%9A%80Try%20Live%20Configuration%20Tool%F0%9F%9A%80&color=000000&height=60&gradientType=radial&duration=6s&color0=ffffff&template=pride-rainbow)][demo-link]
 
 <br/>
 
