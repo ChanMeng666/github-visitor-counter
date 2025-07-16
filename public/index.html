@@ -13,11 +13,33 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Decorative flags animation -->
+        <div class="flags-decoration">
+            <div class="flag-wave">🇺🇸</div>
+            <div class="flag-wave">🇬🇧</div>
+            <div class="flag-wave">🇨🇦</div>
+            <div class="flag-wave">🇦🇺</div>
+            <div class="flag-wave">🇯🇵</div>
+            <div class="flag-wave">🇰🇷</div>
+            <div class="flag-wave">🇩🇪</div>
+            <div class="flag-wave">🇫🇷</div>
+            <div class="flag-wave">🇧🇷</div>
+            <div class="flag-wave">🇮🇳</div>
+            <div class="flag-wave">🇨🇳</div>
+            <div class="flag-wave">🇲🇽</div>
+            <div class="flag-wave">🇮🇹</div>
+            <div class="flag-wave">🇪🇸</div>
+            <div class="flag-wave">🇳🇱</div>
+        </div>
+
         <header class="header">
             <div class="header-content">
                 <div class="header-brand">
-                    <h1>🌍 GitHub Visitor Counter</h1>
-                    <p>Display visitor flags on your GitHub profile</p>
+                    <h1>
+                        <span class="globe-icon">🌍</span>
+                        <span>GitHub Visitor Counter</span>
+                    </h1>
+                    <p>Track and display visitor flags from around the world on your GitHub profile</p>
                 </div>
                 <a href="https://github.com/ChanMeng666/github-visitor-counter" class="github-link" target="_blank" rel="noopener">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -32,11 +54,11 @@
             <div class="configurator">
                 <!-- Configuration Panel -->
                 <div class="config-panel">
-                    <h2>Configuration</h2>
+                    <h2>⚙️ Configuration</h2>
                     
                     <!-- Basic Settings -->
                     <div class="form-section">
-                        <div class="section-title">Basic Settings</div>
+                        <div class="section-title">🎯 Basic Settings</div>
                         
                         <div class="form-group">
                             <label for="username">GitHub Username <span class="required">*</span></label>
@@ -58,7 +80,7 @@
 
                     <!-- Display Options -->
                     <div class="form-section">
-                        <div class="section-title">Display Options</div>
+                        <div class="section-title">🎨 Display Options</div>
                         
                         <div class="form-group">
                             <label for="flagsfrom">Show Flags From</label>
@@ -101,7 +123,7 @@
 
                     <!-- Label & Count -->
                     <div class="form-section">
-                        <div class="section-title">Label & Count</div>
+                        <div class="section-title">🏷️ Label & Count</div>
                         
                         <div class="form-group">
                             <label for="labelType">Label Type</label>
@@ -141,7 +163,7 @@
 
                     <!-- Custom Colors -->
                     <div class="color-section">
-                        <div class="section-title">Custom Colors (Optional)</div>
+                        <div class="section-title">🎨 Custom Colors (Optional)</div>
                         <div class="color-grid">
                             <div class="color-input-group">
                                 <label for="bg">Background</label>
@@ -170,7 +192,25 @@
 
                 <!-- Preview Panel -->
                 <div class="preview-panel">
-                    <h2>Preview</h2>
+                    <div class="world-map-bg">
+                        <svg class="world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 250 Q 150 200 250 250 T 450 250 Q 550 200 650 250 T 850 250 Q 900 200 950 250" 
+                                  stroke="currentColor" stroke-width="2" fill="none" opacity="0.1"/>
+                            <circle cx="200" cy="150" r="3" fill="currentColor" opacity="0.2">
+                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="400" cy="300" r="3" fill="currentColor" opacity="0.2">
+                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="600" cy="200" r="3" fill="currentColor" opacity="0.2">
+                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" begin="1s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="800" cy="350" r="3" fill="currentColor" opacity="0.2">
+                                <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                    <h2>👁️ Live Preview</h2>
                     
                     <div class="preview-container">
                         <div class="preview-wrapper">
@@ -213,7 +253,8 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <p>Made with ❤️ for the GitHub community • Powered by <a href="https://flagcounter.com" target="_blank" rel="noopener">Flag Counter</a></p>
+                <p>Created by <a href="https://github.com/ChanMeng666" target="_blank" rel="noopener">Chan Meng</a> with ❤️ for the GitHub community</p>
+                <p class="footer-credits">Powered by <a href="https://flagcounter.com" target="_blank" rel="noopener">Flag Counter</a> • <a href="https://github.com/ChanMeng666/github-visitor-counter" target="_blank" rel="noopener">View Source</a></p>
             </div>
         </footer>
     </div>
