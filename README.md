@@ -31,39 +31,39 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Default Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666)
 
 ### Dark Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark)
 
 ### GitHub Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github)
 
 ### GitHub Dark Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github_dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github_dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark)
 
 ### Transparent Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=transparent)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=transparent)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=transparent)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=transparent)
 
 ## ⚙️ Parameters
 
 | Parameter | Description | Default | Example |
 |-----------|-------------|---------|---------|
-| `username` | GitHub username (required) | - | `chanmeng` |
+| `username` | GitHub username (required) | - | `ChanMeng666` |
 | `theme` | Color theme | `default` | `dark`, `github`, `transparent` |
 | `columns` | Number of flag columns | `2` | `3`, `4`, `5` |
 | `maxflags` | Maximum flags to show | `10` | `20`, `50` |
@@ -78,33 +78,33 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Custom Colors
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&bg=FF5733&text=FFFFFF&border=FF5733)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&bg=FF5733&text=FFFFFF&border=FF5733)
 
 ### More Flags with Custom Label
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&maxflags=30&columns=5&label=Profile%20Visitors)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&maxflags=30&columns=5&label=Profile%20Visitors)
 
 ### Large Flags without Count
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=large&showcount=false)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=large&showcount=false)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=large&showcount=false)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=large&showcount=false)
 
 ### Small Flags with More Columns
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=small&columns=4)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=small&columns=4)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=small&columns=4)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=small&columns=4)
 
 ### Combined Parameters
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&columns=4&maxflags=20&size=small)
 ```
-![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&columns=4&maxflags=20&size=small)
 
 ## 🎯 Use Cases
 
@@ -187,6 +187,7 @@ MIT License - feel free to use this in your profile!
 2. **Caching**: Updates may take up to 1 hour to appear
 3. **Max Flags**: Flag Counter limits the total number of unique countries
 4. **Custom Styling**: Use theme parameters to match your README style
+5. **Independent Counters**: Each unique parameter combination creates its own visitor counter. If you want consistent visitor data across different themes, use the same parameters
 
 ---
 
