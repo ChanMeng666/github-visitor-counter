@@ -37,7 +37,7 @@ export function generateFlagCounterUrl(params) {
   // 处理标签
   let labelParam = '';
   if (label.toLowerCase() === 'none') {
-    labelParam = 'none';
+    labelParam = '0';  // Flag Counter uses 0 to hide label
   } else {
     const sanitizedLabel = sanitizeLabel(label);
     labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
