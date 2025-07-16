@@ -18,7 +18,7 @@ Display visitor flags on your GitHub profile! Show which countries your profile 
 Add this to your GitHub profile README:
 
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=YOUR_USERNAME)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
 ```
 
 Replace `YOUR_USERNAME` with your GitHub username.
@@ -27,27 +27,27 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Default Theme
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng)
 ```
 
 ### Dark Theme
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&theme=dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark)
 ```
 
 ### GitHub Theme
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&theme=github)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github)
 ```
 
 ### GitHub Dark Theme
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&theme=github_dark)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github_dark)
 ```
 
 ### Transparent Theme
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&theme=transparent)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=transparent)
 ```
 
 ## ⚙️ Parameters
@@ -69,22 +69,22 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Custom Colors
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
 ```
 
 ### More Flags with Custom Label
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
 ```
 
 ### Large Flags without Count
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&size=large&showcount=false)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=large&showcount=false)
 ```
 
 ### Combined Parameters
 ```markdown
-![](https://github-visitor-counter.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
 ```
 
 ## 🚀 Deploy Your Own
