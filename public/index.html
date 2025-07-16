@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Visitor Counter - Create Your Flag Counter</title>
-    <meta name="description" content="Display visitor flags on your GitHub profile. Show which countries your profile visitors come from.">
+    <title>GitHub Visitor Counter - Create Your Custom Flag Counter</title>
+    <meta name="description" content="Display visitor flags on your GitHub profile. Show which countries your profile visitors come from with customizable themes and layouts.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="app-container">
+        <header class="header">
             <div class="header-content">
-                <h1>GitHub Visitor Counter</h1>
-                <p>Display visitor flags on your GitHub profile</p>
-                <a href="https://github.com/ChanMeng666/github-visitor-counter" class="github-link" target="_blank">
+                <div class="header-brand">
+                    <h1>🌍 GitHub Visitor Counter</h1>
+                    <p>Display visitor flags on your GitHub profile</p>
+                </div>
+                <a href="https://github.com/ChanMeng666/github-visitor-counter" class="github-link" target="_blank" rel="noopener">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
@@ -26,109 +28,136 @@
             </div>
         </header>
 
-        <main>
+        <main class="main-content">
             <div class="configurator">
+                <!-- Configuration Panel -->
                 <div class="config-panel">
                     <h2>Configuration</h2>
                     
-                    <div class="form-group">
-                        <label for="username">GitHub Username <span class="required">*</span></label>
-                        <input type="text" id="username" placeholder="Enter your GitHub username" required>
-                        <span class="help-text">Your GitHub username (e.g., ChanMeng666)</span>
+                    <!-- Basic Settings -->
+                    <div class="form-section">
+                        <div class="section-title">Basic Settings</div>
+                        
+                        <div class="form-group">
+                            <label for="username">GitHub Username <span class="required">*</span></label>
+                            <input type="text" id="username" placeholder="Enter your GitHub username" required>
+                            <span class="help-text">Your GitHub username (e.g., ChanMeng666)</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="theme">Theme</label>
+                            <select id="theme">
+                                <option value="default">Default</option>
+                                <option value="dark">Dark</option>
+                                <option value="github">GitHub</option>
+                                <option value="github_dark">GitHub Dark</option>
+                                <option value="transparent">Transparent</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="theme">Theme</label>
-                        <select id="theme">
-                            <option value="default">Default</option>
-                            <option value="dark">Dark</option>
-                            <option value="github">GitHub</option>
-                            <option value="github_dark">GitHub Dark</option>
-                            <option value="transparent">Transparent</option>
-                        </select>
+                    <!-- Display Options -->
+                    <div class="form-section">
+                        <div class="section-title">Display Options</div>
+                        
+                        <div class="form-group">
+                            <label for="flagsfrom">Show Flags From</label>
+                            <select id="flagsfrom">
+                                <option value="all">All Countries</option>
+                                <option value="us">United States Only</option>
+                                <option value="ca">Canada Only</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="range-group">
+                                <div class="range-label">
+                                    <label for="columns">Columns</label>
+                                    <span class="range-value" id="columnsValue">2</span>
+                                </div>
+                                <input type="range" id="columns" min="1" max="8" value="2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="range-group">
+                                <div class="range-label">
+                                    <label for="maxflags">Max Flags</label>
+                                    <span class="range-value" id="maxflagsValue">10</span>
+                                </div>
+                                <input type="range" id="maxflags" min="1" max="250" value="10">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="size">Flag Size</label>
+                            <select id="size">
+                                <option value="small">Small</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="flagsfrom">Show Flags From</label>
-                        <select id="flagsfrom">
-                            <option value="all">All Countries</option>
-                            <option value="us">United States Only</option>
-                            <option value="ca">Canada Only</option>
-                        </select>
+                    <!-- Label & Count -->
+                    <div class="form-section">
+                        <div class="section-title">Label & Count</div>
+                        
+                        <div class="form-group">
+                            <label for="labelType">Label Type</label>
+                            <select id="labelType">
+                                <option value="visitors">Visitors</option>
+                                <option value="none">None</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <input type="text" id="label" placeholder="Custom label" value="Visitors" style="display: none; margin-top: 8px;" pattern="[A-Za-z0-9 ]+">
+                            <span class="help-text" id="labelHelp" style="display: none;">Letters and numbers only</span>
+                        </div>
+
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <span>Show Visitor Count</span>
+                                <input type="checkbox" id="showcount" checked>
+                                <span class="toggle-switch"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="visitortype">Display Type</label>
+                            <select id="visitortype">
+                                <option value="number">Number</option>
+                                <option value="percentage">Percentage</option>
+                            </select>
+                        </div>
+
+                        <div class="toggle-group">
+                            <label class="toggle-label">
+                                <span>Show Country Labels</span>
+                                <input type="checkbox" id="showlabels">
+                                <span class="toggle-switch"></span>
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="columns">Columns: <span id="columnsValue">2</span></label>
-                        <input type="range" id="columns" min="1" max="8" value="2">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="maxflags">Max Flags: <span id="maxflagsValue">10</span></label>
-                        <input type="range" id="maxflags" min="1" max="250" value="10">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="label">Label Text</label>
-                        <select id="labelType">
-                            <option value="visitors">Visitors</option>
-                            <option value="none">None</option>
-                            <option value="custom">Custom</option>
-                        </select>
-                        <input type="text" id="label" placeholder="Custom label" value="Visitors" style="display: none; margin-top: 8px;" pattern="[A-Za-z0-9 ]+">
-                        <span class="help-text" id="labelHelp" style="display: none;">Letters and numbers only</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="toggle-label">
-                            <input type="checkbox" id="showcount" checked>
-                            <span class="toggle-switch"></span>
-                            Show Visitor Count
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="visitortype">Show Visitors As</label>
-                        <select id="visitortype">
-                            <option value="number">Number</option>
-                            <option value="percentage">Percentage</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="toggle-label">
-                            <input type="checkbox" id="showlabels">
-                            <span class="toggle-switch"></span>
-                            Show Flag Labels
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="size">Flag Size</label>
-                        <select id="size">
-                            <option value="small">Small</option>
-                            <option value="medium" selected>Medium</option>
-                            <option value="large">Large</option>
-                        </select>
-                    </div>
-
-                    <details class="custom-colors">
-                        <summary>Custom Colors (Optional)</summary>
-                        <div class="color-inputs">
-                            <div class="form-group">
+                    <!-- Custom Colors -->
+                    <div class="color-section">
+                        <div class="section-title">Custom Colors (Optional)</div>
+                        <div class="color-grid">
+                            <div class="color-input-group">
                                 <label for="bg">Background</label>
                                 <div class="color-input-wrapper">
                                     <input type="text" id="bg" placeholder="FFFFFF" maxlength="6" pattern="[0-9A-Fa-f]{6}">
                                     <input type="color" id="bgPicker" value="#FFFFFF">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="color-input-group">
                                 <label for="text">Text</label>
                                 <div class="color-input-wrapper">
                                     <input type="text" id="text" placeholder="000000" maxlength="6" pattern="[0-9A-Fa-f]{6}">
                                     <input type="color" id="textPicker" value="#000000">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="color-input-group">
                                 <label for="border">Border</label>
                                 <div class="color-input-wrapper">
                                     <input type="text" id="border" placeholder="CCCCCC" maxlength="6" pattern="[0-9A-Fa-f]{6}">
@@ -136,9 +165,10 @@
                                 </div>
                             </div>
                         </div>
-                    </details>
+                    </div>
                 </div>
 
+                <!-- Preview Panel -->
                 <div class="preview-panel">
                     <h2>Preview</h2>
                     
@@ -150,38 +180,41 @@
                             </div>
                         </div>
                         <p class="preview-note">Note: Each parameter combination creates its own visitor counter</p>
-                    </div>
 
-                    <div class="code-section">
-                        <h3>Markdown Code</h3>
-                        <div class="code-container">
-                            <pre><code id="markdownCode">![](https://github-visitor-counter-zeta.vercel.app/api?username=github)</code></pre>
-                            <button class="copy-button" id="copyButton">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                </svg>
-                                Copy
-                            </button>
+                        <div class="code-section">
+                            <div class="code-header">
+                                <h3>Markdown Code</h3>
+                                <button class="copy-button" id="copyButton">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="code-container">
+                                <pre><code id="markdownCode">![](https://github-visitor-counter-zeta.vercel.app/api?username=github)</code></pre>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usage-tips">
-                        <h3>How to Use</h3>
-                        <ol>
-                            <li>Enter your GitHub username</li>
-                            <li>Customize the appearance with the options</li>
-                            <li>Copy the markdown code</li>
-                            <li>Paste it into your GitHub profile README.md</li>
-                        </ol>
+                        <div class="usage-guide">
+                            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px;">Quick Start</h3>
+                            <ol style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem; color: var(--text-secondary);">
+                                <li>Enter your GitHub username</li>
+                                <li>Customize the appearance</li>
+                                <li>Copy the markdown code</li>
+                                <li>Paste into your GitHub README.md</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <footer>
-            <p>Made with ❤️ for the GitHub community</p>
-            <p>Powered by <a href="https://flagcounter.com" target="_blank">Flag Counter</a></p>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Made with ❤️ for the GitHub community • Powered by <a href="https://flagcounter.com" target="_blank" rel="noopener">Flag Counter</a></p>
+            </div>
         </footer>
     </div>
 
