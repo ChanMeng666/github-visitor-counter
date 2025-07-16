@@ -15,6 +15,10 @@ Display visitor flags on your GitHub profile! Show which countries your profile 
 
 ## 📋 Quick Start
 
+### Option 1: Use the Configuration Tool
+Visit [https://github-visitor-counter-zeta.vercel.app](https://github-visitor-counter-zeta.vercel.app) to customize your counter with a live preview.
+
+### Option 2: Manual Setup
 Add this to your GitHub profile README:
 
 ```markdown

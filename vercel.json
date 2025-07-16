@@ -5,12 +5,6 @@
       "maxDuration": 10
     }
   },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://github.com/ChanMeng666/github-visitor-counter"
-    }
-  ],
   "headers": [
     {
       "source": "/api",
@@ -20,6 +14,24 @@
           "value": "*"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/css/:path*",
+      "destination": "/public/css/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "/public/js/:path*"
+    },
+    {
+      "source": "/favicon.svg",
+      "destination": "/public/favicon.svg"
     }
   ]
 }
