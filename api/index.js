@@ -22,7 +22,7 @@ export default function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=300');
     res.status(400).json({
       error: error.message || 'Invalid request parameters',
-      usage: 'https://github.com/yourusername/github-visitor-counter#usage'
+      usage: 'https://github.com/ChanMeng666/github-visitor-counter#usage'
     });
   }
 }

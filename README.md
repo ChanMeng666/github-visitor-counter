@@ -2,7 +2,7 @@
 
 Display visitor flags on your GitHub profile! Show which countries your profile visitors come from.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/github-visitor-counter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ChanMeng666/github-visitor-counter)
 
 ## ✨ Features
 

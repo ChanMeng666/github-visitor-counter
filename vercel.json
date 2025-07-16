@@ -8,7 +8,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "https://github.com/yourusername/github-visitor-counter"
+      "destination": "https://github.com/ChanMeng666/github-visitor-counter"
     }
   ],
   "headers": [
