@@ -13,7 +13,7 @@ Display visitor flags on your GitHub profile! Show which countries your profile 
 - 🌐 Country flag display
 - ⚡ Fast with caching
 
-## 📋 Usage
+## 📋 Quick Start
 
 Add this to your GitHub profile README:
 
@@ -23,32 +23,41 @@ Add this to your GitHub profile README:
 
 Replace `YOUR_USERNAME` with your GitHub username.
 
+**Live Example:**
+
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666)
+
 ## 🎨 Themes
 
 ### Default Theme
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng)
 
 ### Dark Theme
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark)
 
 ### GitHub Theme
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github)
 
 ### GitHub Dark Theme
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github_dark)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=github_dark)
 
 ### Transparent Theme
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=transparent)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=transparent)
 
 ## ⚙️ Parameters
 
@@ -71,20 +80,60 @@ Replace `YOUR_USERNAME` with your GitHub username.
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&bg=FF5733&text=FFFFFF&border=FF5733)
 
 ### More Flags with Custom Label
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&maxflags=30&columns=5&label=Profile%20Visitors)
 
 ### Large Flags without Count
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=large&showcount=false)
 ```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=large&showcount=false)
+
+### Small Flags with More Columns
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=small&columns=4)
+```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&size=small&columns=4)
 
 ### Combined Parameters
 ```markdown
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
+```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=chanmeng&theme=dark&columns=4&maxflags=20&size=small)
+
+## 🎯 Use Cases
+
+### Minimal Setup
+Just want to quickly add a visitor counter? Use the default settings:
+
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+```
+
+### Professional Profile
+For a clean, professional look:
+
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=github&columns=3&maxflags=15)
+```
+
+### Dark Mode Friendly
+Perfect for dark-themed profiles:
+
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=dark&columns=4)
+```
+
+### Maximalist Approach
+Show as many flags as possible:
+
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&maxflags=50&columns=10&size=small)
 ```
 
 ## 🚀 Deploy Your Own
@@ -110,6 +159,19 @@ npm run dev
 npm run deploy
 ```
 
+## 📝 How It Works
+
+1. When someone visits your GitHub profile, the image loads from our API
+2. The API generates a unique identifier based on your username
+3. Flag Counter tracks the visitor's country
+4. The service returns an image showing all visitor flags
+
+## 🔐 Privacy
+
+- No personal data is collected
+- Only country information is tracked via Flag Counter
+- Each GitHub username gets a unique, anonymous identifier
+
 ## 📄 License
 
 MIT License - feel free to use this in your profile!
@@ -118,6 +180,13 @@ MIT License - feel free to use this in your profile!
 
 - Powered by [Flag Counter](https://flagcounter.com)
 - Inspired by [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+
+## 💡 Tips
+
+1. **First Visit**: You'll see your own country's flag first
+2. **Caching**: Updates may take up to 1 hour to appear
+3. **Max Flags**: Flag Counter limits the total number of unique countries
+4. **Custom Styling**: Use theme parameters to match your README style
 
 ---
 
