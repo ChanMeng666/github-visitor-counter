@@ -136,6 +136,8 @@ function updatePreview() {
     }
     
     // Update preview image
+    // Add timestamp to prevent caching issues
+    params.append('_t', Date.now());
     const newSrc = `${API_ENDPOINT}?${params.toString()}`;
     elements.preview.src = newSrc;
     
@@ -223,6 +225,8 @@ function updateMarkdownCode() {
         params.append('border', border);
     }
     
+    // Don't include timestamp in markdown code
+    params.delete('_t');
     const url = `${BASE_URL}/api?${params.toString()}`;
     elements.markdownCode.textContent = `![](${url})`;
 }
