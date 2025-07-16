@@ -107,9 +107,8 @@ function updatePreview() {
     }
     
     const visitortype = elements.visitortype.value;
-    if (visitortype !== 'number') {
-        params.append('visitortype', visitortype);
-    }
+    // Always append visitortype parameter
+    params.append('visitortype', visitortype);
     
     if (elements.showlabels.checked) {
         params.append('showlabels', 'true');
@@ -195,9 +194,8 @@ function updateMarkdownCode() {
     }
     
     const visitortype = elements.visitortype.value;
-    if (visitortype !== 'number') {
-        params.append('visitortype', visitortype);
-    }
+    // Always append visitortype parameter
+    params.append('visitortype', visitortype);
     
     if (elements.showlabels.checked) {
         params.append('showlabels', 'true');
