@@ -49,18 +49,33 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="flagsfrom">Show Flags From</label>
+                        <select id="flagsfrom">
+                            <option value="all">All Countries</option>
+                            <option value="us">United States Only</option>
+                            <option value="ca">Canada Only</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="columns">Columns: <span id="columnsValue">2</span></label>
-                        <input type="range" id="columns" min="1" max="10" value="2">
+                        <input type="range" id="columns" min="1" max="8" value="2">
                     </div>
 
                     <div class="form-group">
                         <label for="maxflags">Max Flags: <span id="maxflagsValue">10</span></label>
-                        <input type="range" id="maxflags" min="5" max="100" value="10" step="5">
+                        <input type="range" id="maxflags" min="1" max="250" value="10">
                     </div>
 
                     <div class="form-group">
                         <label for="label">Label Text</label>
-                        <input type="text" id="label" placeholder="Visitors" value="Visitors">
+                        <select id="labelType">
+                            <option value="visitors">Visitors</option>
+                            <option value="none">None</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <input type="text" id="label" placeholder="Custom label" value="Visitors" style="display: none; margin-top: 8px;" pattern="[A-Za-z0-9 ]+">
+                        <span class="help-text" id="labelHelp" style="display: none;">Letters and numbers only</span>
                     </div>
 
                     <div class="form-group">
@@ -68,6 +83,22 @@
                             <input type="checkbox" id="showcount" checked>
                             <span class="toggle-switch"></span>
                             Show Visitor Count
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitortype">Show Visitors As</label>
+                        <select id="visitortype">
+                            <option value="number">Number</option>
+                            <option value="percentage">Percentage</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="showlabels">
+                            <span class="toggle-switch"></span>
+                            Show Flag Labels
                         </label>
                     </div>
 

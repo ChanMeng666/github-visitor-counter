@@ -17,6 +17,9 @@ export function generateFlagCounterUrl(params) {
     maxflags,
     label,
     showcount,
+    showlabels,
+    flagsfrom,
+    visitortype,
     size,
     bg,
     text,
@@ -32,8 +35,13 @@ export function generateFlagCounterUrl(params) {
   const borderColor = validateHexColor(border) ? border : 'CCCCCC';
   
   // 处理标签
-  const sanitizedLabel = sanitizeLabel(label);
-  const labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
+  let labelParam = '';
+  if (label.toLowerCase() === 'none') {
+    labelParam = 'none';
+  } else {
+    const sanitizedLabel = sanitizeLabel(label);
+    labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
+  }
   
   // 构建 Flag Counter URL
   // 注意：Flag Counter 的每个唯一 URL 都是独立的计数器
@@ -45,11 +53,16 @@ export function generateFlagCounterUrl(params) {
     `columns_${columns}`,
     `maxflags_${maxflags}`,
     `viewers_${labelParam}`,
-    `labels_0`,
+    `labels_${showlabels ? '1' : '0'}`,
     `pageviews_${showcount ? '1' : '0'}`,
     `flags_${size}`,
-    `percent_0`
-  ].join('/');
-
-  return `${FLAG_COUNTER_BASE_URL}/count2/${userId}/${flagParams}/`;
+    `percent_${visitortype}`
+  ];
+  
+  // 添加 flagsfrom 参数（如果不是默认的 all）
+  if (flagsfrom) {
+    flagParams.push(`country_${flagsfrom}`);
+  }
+  
+  return `${FLAG_COUNTER_BASE_URL}/count2/${userId}/${flagParams.join('/')}/`;
 }

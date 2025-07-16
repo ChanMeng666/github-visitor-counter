@@ -6,12 +6,17 @@ const API_ENDPOINT = '/api';
 const elements = {
     username: document.getElementById('username'),
     theme: document.getElementById('theme'),
+    flagsfrom: document.getElementById('flagsfrom'),
     columns: document.getElementById('columns'),
     columnsValue: document.getElementById('columnsValue'),
     maxflags: document.getElementById('maxflags'),
     maxflagsValue: document.getElementById('maxflagsValue'),
+    labelType: document.getElementById('labelType'),
     label: document.getElementById('label'),
+    labelHelp: document.getElementById('labelHelp'),
     showcount: document.getElementById('showcount'),
+    visitortype: document.getElementById('visitortype'),
+    showlabels: document.getElementById('showlabels'),
     size: document.getElementById('size'),
     bg: document.getElementById('bg'),
     bgPicker: document.getElementById('bgPicker'),
@@ -69,6 +74,11 @@ function updatePreview() {
         params.append('theme', theme);
     }
     
+    const flagsfrom = elements.flagsfrom.value;
+    if (flagsfrom !== 'all') {
+        params.append('flagsfrom', flagsfrom);
+    }
+    
     const columns = elements.columns.value;
     if (columns !== '2') {
         params.append('columns', columns);
@@ -79,13 +89,30 @@ function updatePreview() {
         params.append('maxflags', maxflags);
     }
     
-    const label = elements.label.value.trim();
-    if (label && label !== 'Visitors') {
-        params.append('label', label);
+    // Handle label based on type
+    const labelType = elements.labelType.value;
+    if (labelType === 'none') {
+        params.append('label', 'none');
+    } else if (labelType === 'custom') {
+        const customLabel = elements.label.value.trim();
+        if (customLabel) {
+            params.append('label', customLabel);
+        }
+    } else if (labelType === 'visitors') {
+        // Default, don't append
     }
     
     if (!elements.showcount.checked) {
         params.append('showcount', 'false');
+    }
+    
+    const visitortype = elements.visitortype.value;
+    if (visitortype !== 'number') {
+        params.append('visitortype', visitortype);
+    }
+    
+    if (elements.showlabels.checked) {
+        params.append('showlabels', 'true');
     }
     
     const size = elements.size.value;
@@ -135,6 +162,11 @@ function updateMarkdownCode() {
         params.append('theme', theme);
     }
     
+    const flagsfrom = elements.flagsfrom.value;
+    if (flagsfrom !== 'all') {
+        params.append('flagsfrom', flagsfrom);
+    }
+    
     const columns = elements.columns.value;
     if (columns !== '2') {
         params.append('columns', columns);
@@ -145,13 +177,30 @@ function updateMarkdownCode() {
         params.append('maxflags', maxflags);
     }
     
-    const label = elements.label.value.trim();
-    if (label && label !== 'Visitors') {
-        params.append('label', label);
+    // Handle label based on type
+    const labelType = elements.labelType.value;
+    if (labelType === 'none') {
+        params.append('label', 'none');
+    } else if (labelType === 'custom') {
+        const customLabel = elements.label.value.trim();
+        if (customLabel) {
+            params.append('label', customLabel);
+        }
+    } else if (labelType === 'visitors') {
+        // Default, don't append
     }
     
     if (!elements.showcount.checked) {
         params.append('showcount', 'false');
+    }
+    
+    const visitortype = elements.visitortype.value;
+    if (visitortype !== 'number') {
+        params.append('visitortype', visitortype);
+    }
+    
+    if (elements.showlabels.checked) {
+        params.append('showlabels', 'true');
     }
     
     const size = elements.size.value;
@@ -189,6 +238,7 @@ elements.theme.addEventListener('change', () => {
     updateThemeColors();
     updatePreview();
 });
+elements.flagsfrom.addEventListener('change', updatePreview);
 elements.columns.addEventListener('input', (e) => {
     elements.columnsValue.textContent = e.target.value;
     debouncedUpdate();
@@ -197,8 +247,27 @@ elements.maxflags.addEventListener('input', (e) => {
     elements.maxflagsValue.textContent = e.target.value;
     debouncedUpdate();
 });
-elements.label.addEventListener('input', debouncedUpdate);
+
+// Label type handling
+elements.labelType.addEventListener('change', (e) => {
+    if (e.target.value === 'custom') {
+        elements.label.style.display = 'block';
+        elements.labelHelp.style.display = 'block';
+    } else {
+        elements.label.style.display = 'none';
+        elements.labelHelp.style.display = 'none';
+    }
+    updatePreview();
+});
+elements.label.addEventListener('input', (e) => {
+    // Only allow letters, numbers, and spaces
+    e.target.value = e.target.value.replace(/[^A-Za-z0-9 ]/g, '');
+    debouncedUpdate();
+});
+
 elements.showcount.addEventListener('change', updatePreview);
+elements.visitortype.addEventListener('change', updatePreview);
+elements.showlabels.addEventListener('change', updatePreview);
 elements.size.addEventListener('change', updatePreview);
 
 // Color input handling

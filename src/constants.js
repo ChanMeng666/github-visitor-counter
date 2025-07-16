@@ -5,6 +5,9 @@ export const DEFAULTS = {
   MAX_FLAGS: 10,
   LABEL: 'Visitors',
   SHOW_COUNT: true,
+  SHOW_LABELS: false,
+  FLAGS_FROM: 'all',
+  VISITOR_TYPE: 'number',
   FLAG_SIZE: 'medium',
   CACHE_SECONDS: 3600
 };
@@ -13,6 +16,17 @@ export const FLAG_SIZES = {
   small: 0,
   medium: 1,
   large: 2
+};
+
+export const FLAGS_FROM_OPTIONS = {
+  all: '',
+  us: 'US',
+  ca: 'CA'
+};
+
+export const VISITOR_TYPES = {
+  number: 0,
+  percentage: 1
 };
 
 export const THEMES = {

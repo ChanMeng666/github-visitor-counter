@@ -69,14 +69,17 @@ Replace `YOUR_USERNAME` with your GitHub username.
 |-----------|-------------|---------|---------|
 | `username` | GitHub username (required) | - | `ChanMeng666` |
 | `theme` | Color theme | `default` | `dark`, `github`, `transparent` |
-| `columns` | Number of flag columns | `2` | `3`, `4`, `5` |
-| `maxflags` | Maximum flags to show | `10` | `20`, `50` |
-| `label` | Label text above flags | `Visitors` | `Profile Views` |
+| `flagsfrom` | Show flags from specific country | `all` | `us`, `ca` |
+| `columns` | Number of flag columns (1-8) | `2` | `3`, `4`, `5` |
+| `maxflags` | Maximum flags to show (1-250) | `10` | `20`, `50`, `100` |
+| `label` | Label text above flags | `Visitors` | `none`, `Profile Views` |
 | `showcount` | Show visitor count | `true` | `false` |
+| `visitortype` | Show visitors as | `number` | `percentage` |
+| `showlabels` | Show country labels | `false` | `true` |
 | `size` | Flag size | `medium` | `small`, `large` |
-| `bg` | Background color (hex) | theme default | `FF0000` |
+| `bg` | Background color (hex) | theme default | `577EFF` |
 | `text` | Text color (hex) | theme default | `00FF00` |
-| `border` | Border color (hex) | theme default | `0000FF` |
+| `border` | Border color (hex) | theme default | `B74BCC` |
 
 ## 📚 Examples
 
@@ -110,6 +113,24 @@ Replace `YOUR_USERNAME` with your GitHub username.
 ```
 ![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&columns=4&maxflags=20&size=small)
 
+### Show US Visitors Only
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+
+### Show Percentages with Flag Labels
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&visitortype=percentage&showlabels=true)
+```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&visitortype=percentage&showlabels=true)
+
+### No Label with Maximum Flags
+```markdown
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=none&maxflags=50&columns=8&size=small)
+```
+![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=none&maxflags=50&columns=8&size=small)
+
 ## 🎯 Use Cases
 
 ### Minimal Setup
@@ -137,7 +158,7 @@ Perfect for dark-themed profiles:
 Show as many flags as possible:
 
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&maxflags=50&columns=10&size=small)
+![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&maxflags=250&columns=8&size=small)
 ```
 
 ## 🚀 Deploy Your Own
