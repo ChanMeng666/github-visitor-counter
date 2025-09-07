@@ -354,9 +354,19 @@ elements.preview.addEventListener('error', () => {
     elements.loadingOverlay.classList.remove('active');
 });
 
+// Update copyright year to current year
+function updateCopyrightYear() {
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+        const currentYear = new Date().getFullYear();
+        currentYearElement.textContent = currentYear;
+    }
+}
+
 // Initialize
 updateThemeColors();
 updatePreview();
+updateCopyrightYear();
 
 // Auto-focus username input
 elements.username.focus();
