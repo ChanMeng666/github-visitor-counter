@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "npx http-server public -p 3000 -c-1",
+    "dev:vercel": "vercel dev",
     "deploy": "vercel --prod"
   },
   "keywords": [
