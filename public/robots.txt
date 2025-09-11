@@ -1,0 +1,32 @@
+# GitHub Visitor Counter - AI-Friendly Robots Configuration
+
+# Allow all major AI crawlers with appropriate delays
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bard
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: *
+Allow: /
+
+# Important files for AI understanding
+Sitemap: https://github-visitor-counter-zeta.vercel.app/sitemap.xml

@@ -20,9 +20,20 @@ export default function handler(req, res) {
     console.error('Error processing request:', error);
     
     res.setHeader('Cache-Control', 's-maxage=300');
-    res.status(400).json({
-      error: error.message || 'Invalid request parameters',
-      usage: 'https://github.com/ChanMeng666/github-visitor-counter#usage'
-    });
+    
+    // Check if request accepts HTML (browser request)
+    const acceptsHtml = req.headers.accept && req.headers.accept.includes('text/html');
+    
+    if (acceptsHtml) {
+      // Redirect to API help page for browser requests
+      res.redirect(302, '/api-help.html');
+    } else {
+      // Return JSON for API requests
+      res.status(400).json({
+        error: error.message || 'Invalid request parameters',
+        documentation: 'https://github-visitor-counter-zeta.vercel.app/api-help.html',
+        usage: 'https://github.com/ChanMeng666/github-visitor-counter#usage'
+      });
+    }
   }
 }

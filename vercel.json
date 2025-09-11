@@ -32,6 +32,22 @@
     {
       "source": "/favicon.svg",
       "destination": "/public/favicon.svg"
+    },
+    {
+      "source": "/api-help.html",
+      "destination": "/public/api-help.html"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/public/llms.txt"
+    },
+    {
+      "source": "/robots.txt", 
+      "destination": "/public/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/public/sitemap.xml"
     }
   ]
 }
