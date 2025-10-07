@@ -13,14 +13,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api',
-        destination: '/api/index',
-      },
-    ];
-  },
 };
 
 export default nextConfig;

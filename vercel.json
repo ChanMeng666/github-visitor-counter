@@ -1,33 +1,13 @@
 {
-  "functions": {
-    "api/*.js": {
-      "memory": 128,
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
-      "source": "/api",
+      "source": "/api/:path*",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/robots.txt",
-      "destination": "/public/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/public/sitemap.xml"
-    },
-    {
-      "source": "/llms.txt",
-      "destination": "/public/llms.txt"
     }
   ]
 }
