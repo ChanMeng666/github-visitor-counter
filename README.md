@@ -8,7 +8,7 @@ An elegant and highly customizable visitor counter that displays country flags o
 Track and showcase your global audience with multiple themes, flexible layouts, and real-time configuration.<br/>
 One-click **FREE** deployment with zero maintenance required. Built with Next.js and modern React.
 
-[🚀 Live Demo](https://github-visitor-counter-zeta.vercel.app) · [📖 Documentation](#-usage-guide) · [🎨 Configuration Tool](https://github-visitor-counter-zeta.vercel.app) · [🐛 Issues](https://github.com/ChanMeng666/github-visitor-counter/issues)
+[🚀 Live Demo](https://github-visitor-counter-tau.vercel.app) · [📖 Documentation](#-usage-guide) · [🎨 Configuration Tool](https://github-visitor-counter-tau.vercel.app) · [🐛 Issues](https://github.com/ChanMeng666/github-visitor-counter/issues)
 
 <br/>
 
@@ -44,18 +44,18 @@ One-click **FREE** deployment with zero maintenance required. Built with Next.js
 > Click on any example to see it in action and customize it for your profile!
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Live%20Demo" alt="GitHub Dark Theme Demo" width="600"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Live%20Demo" alt="GitHub Dark Theme Demo" width="600"/>
   </a>
   <p><em>GitHub Dark Theme - 4 columns with 12 flags</em></p>
 </div>
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=10" alt="Default Theme Demo" width="300"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=10" alt="Default Theme Demo" width="300"/>
   </a>
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&columns=3&maxflags=15" alt="Dark Theme Demo" width="300"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&columns=3&maxflags=15" alt="Dark Theme Demo" width="300"/>
   </a>
   <p><em>Default Theme (left) and Dark Theme (right)</em></p>
 </div>
@@ -64,22 +64,22 @@ One-click **FREE** deployment with zero maintenance required. Built with Next.js
 <summary><kbd>🎨 More Theme Examples</kbd></summary>
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github&columns=3&maxflags=12" alt="GitHub Theme" width="400"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github&columns=3&maxflags=12" alt="GitHub Theme" width="400"/>
   </a>
   <p><em>GitHub Theme</em></p>
 </div>
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=transparent&columns=4&maxflags=16" alt="Transparent Theme" width="400"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=transparent&columns=4&maxflags=16" alt="Transparent Theme" width="400"/>
   </a>
   <p><em>Transparent Theme</em></p>
 </div>
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5" alt="With Country Labels" width="300"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5" alt="With Country Labels" width="300"/>
   </a>
   <p><em>With Country Labels</em></p>
 </div>
@@ -91,7 +91,7 @@ One-click **FREE** deployment with zero maintenance required. Built with Next.js
 Add this single line to your GitHub profile README:
 
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
 ```
 
 Replace `YOUR_USERNAME` with your actual GitHub username. That's it! 🎉
@@ -221,8 +221,8 @@ Whether you're a solo developer or part of a large team, this visitor counter wi
 Experience our interactive configuration tool that provides instant preview of your visitor counter. Our innovative web interface allows you to customize every aspect of your counter with real-time visual feedback.
 
 <div align="center">
-  <a href="https://github-visitor-counter-zeta.vercel.app">
-    <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Interactive%20Tool" alt="Configuration Tool Demo" width="600"/>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Interactive%20Tool" alt="Configuration Tool Demo" width="600"/>
   </a>
   <p><em>Interactive Configuration Tool - Try it live!</em></p>
 </div>
@@ -240,8 +240,8 @@ Key capabilities include:
 Choose from carefully crafted themes or create your own with custom colors. Our theme system supports both light and dark modes with GitHub-native styling options.
 
 <div align="center">
-  <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=8" alt="Default Theme" width="280"/>
-  <img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=2&maxflags=8" alt="GitHub Dark Theme" width="280"/>
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=8" alt="Default Theme" width="280"/>
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=2&maxflags=8" alt="GitHub Dark Theme" width="280"/>
   <p><em>Default Theme (left) and GitHub Dark Theme (right)</em></p>
 </div>
 
@@ -412,7 +412,7 @@ sequenceDiagram
 
 1. Copy the markdown code:
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
 ```
 
 2. Paste it into your GitHub profile README.md
@@ -423,7 +423,7 @@ sequenceDiagram
 
 ```html
 <div align="center">
-  <img src="https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME" alt="Visitor Counter">
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME" alt="Visitor Counter">
 </div>
 ```
 
@@ -451,75 +451,75 @@ All parameters are optional except `username`.
 
 ### Basic Counter
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666)
 ```
-![Basic Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666)
+![Basic Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666)
 
 ### Dark Theme with More Flags
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
 ```
-![Dark Theme Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
+![Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
 
 ### Custom Layout - 4 Columns
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
 ```
-![4 Columns Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
+![4 Columns Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
 
 ### GitHub Dark Theme with Percentage
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
 ```
-![GitHub Dark Theme Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
+![GitHub Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
 
 ### No Label
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=none)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=none)
 ```
-![No Label Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=none)
+![No Label Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=none)
 
 ### Custom Label
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
 ```
-![Custom Label Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
+![Custom Label Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
 
 ### Show Country Names
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
 ```
-![Country Names Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
+![Country Names Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
 
 ### Large Flags
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=large&columns=3)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&size=large&columns=3)
 ```
-![Large Flags Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&size=large&columns=3)
+![Large Flags Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&size=large&columns=3)
 
 ### Custom Colors
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
 ```
-![Custom Colors Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
+![Custom Colors Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
 
 ### Hide Visitor Count
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&showcount=false)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showcount=false)
 ```
-![Hide Count Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&showcount=false)
+![Hide Count Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showcount=false)
 
 ### US Visitors Only
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
 ```
-![US Only Example](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+![US Only Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
 
 ## 🎨 Themes
 
 ### Default Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=default)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default)
 ```
 - Background: `#FFFFFF`
 - Text: `#000000`
@@ -527,7 +527,7 @@ All parameters are optional except `username`.
 
 ### Dark Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=dark)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark)
 ```
 - Background: `#0D1117`
 - Text: `#C9D1D9`
@@ -535,7 +535,7 @@ All parameters are optional except `username`.
 
 ### GitHub Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github)
 ```
 - Background: `#24292E`
 - Text: `#FFFFFF`
@@ -543,7 +543,7 @@ All parameters are optional except `username`.
 
 ### GitHub Dark Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark)
 ```
 - Background: `#161B22`
 - Text: `#E6EDF3`
@@ -551,7 +551,7 @@ All parameters are optional except `username`.
 
 ### Transparent Theme
 ```markdown
-![](https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=transparent)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=transparent)
 ```
 - Background: `#FFFFFF`
 - Text: `#000000`
@@ -563,7 +563,7 @@ All parameters are optional except `username`.
 ```markdown
 <div align="center">
   
-  ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+  ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
   
 </div>
 ```
@@ -571,10 +571,10 @@ All parameters are optional except `username`.
 ### Multiple Counters with Different Styles
 ```markdown
 <!-- Light Mode -->
-![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=default)
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=default)
 
 <!-- Dark Mode -->
-![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=dark)
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=dark)
 ```
 
 ### With Caption
@@ -583,7 +583,7 @@ All parameters are optional except `username`.
   
   ### 🌍 Visitors from around the world
   
-  ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+  ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
   
   <sub>Thank you for visiting my profile!</sub>
   
@@ -594,7 +594,7 @@ All parameters are optional except `username`.
 
 ### Base URL
 ```
-https://github-visitor-counter-zeta.vercel.app/api
+https://github-visitor-counter-tau.vercel.app/api
 ```
 
 ### Request Method
@@ -762,7 +762,7 @@ If you have any questions or need help, please:
 
 **Made with ❤️ by [Chan Meng](https://github.com/ChanMeng666)**
 
-<img src="https://github-visitor-counter-zeta.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Thank%20You" alt="Thank You">
+<img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Thank%20You" alt="Thank You">
 
 </div>
 
@@ -773,7 +773,7 @@ If you have any questions or need help, please:
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
 
 <!-- Project Links -->
-[demo-link]: https://github-visitor-counter-zeta.vercel.app
+[demo-link]: https://github-visitor-counter-tau.vercel.app
 [github-link]: https://github.com/ChanMeng666/github-visitor-counter
 
 <!-- GitHub Links -->
@@ -784,7 +784,7 @@ If you have any questions or need help, please:
 [github-issues-link]: https://github.com/ChanMeng666/github-visitor-counter/issues
 [github-license-link]: https://github.com/ChanMeng666/github-visitor-counter/blob/main/LICENSE
 [github-action-link]: https://github.com/ChanMeng666/github-visitor-counter/actions
-[vercel-link]: https://github-visitor-counter-zeta.vercel.app
+[vercel-link]: https://github-visitor-counter-tau.vercel.app
 [sponsor-link]: https://github.com/sponsors/ChanMeng666
 
 <!-- Shield Badges -->

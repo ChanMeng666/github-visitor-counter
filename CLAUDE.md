@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 GitHub Visitor Counter is a serverless application that displays country flags of GitHub profile visitors. It provides a customizable visitor counter widget that developers can embed in their GitHub README files. The service is deployed on Vercel and integrates with the Flag Counter API to generate visitor tracking images.
 
-**Live Demo**: https://github-visitor-counter-zeta.vercel.app
+**Live Demo**: https://github-visitor-counter-tau.vercel.app
 **Main API Endpoint**: `/api?username=YOUR_USERNAME`
 
 ## Development Commands

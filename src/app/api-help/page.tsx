@@ -43,7 +43,7 @@ export default function APIHelpPage() {
             <CardContent className="space-y-4">
               <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                 <code className="text-sm text-slate-100 font-mono">
-                  ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME)
+                  ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
                 </code>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -68,7 +68,7 @@ export default function APIHelpPage() {
             <CardContent>
               <div className="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded">
                 <code className="text-sm font-mono text-blue-900 dark:text-blue-100">
-                  https://github-visitor-counter-zeta.vercel.app/api
+                  https://github-visitor-counter-tau.vercel.app/api
                 </code>
               </div>
             </CardContent>
@@ -189,7 +189,7 @@ export default function APIHelpPage() {
                 <h4 className="font-semibold mb-2">Dark Theme</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=dark)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=dark)
                   </code>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function APIHelpPage() {
                 <h4 className="font-semibold mb-2">Custom Layout (4 columns, 16 flags)</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&columns=4&maxflags=16)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&columns=4&maxflags=16)
                   </code>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function APIHelpPage() {
                 <h4 className="font-semibold mb-2">Minimal (No label, no count)</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&label=none&showcount=false)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&label=none&showcount=false)
                   </code>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function APIHelpPage() {
                 <h4 className="font-semibold mb-2">GitHub Dark Theme with Custom Colors</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=github_dark&bg=161B22&text=E6EDF3)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=github_dark&bg=161B22&text=E6EDF3)
                   </code>
                 </div>
               </div>

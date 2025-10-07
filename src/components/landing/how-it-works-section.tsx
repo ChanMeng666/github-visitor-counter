@@ -73,7 +73,7 @@ export function HowItWorksSection() {
           <h3 className="text-xl font-semibold mb-4">Example Implementation</h3>
           <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
             <code className="text-sm text-slate-100 font-mono">
-              ![](https://github-visitor-counter-zeta.vercel.app/api?username=YOUR_USERNAME&theme=dark&columns=4&maxflags=12)
+              ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=dark&columns=4&maxflags=12)
             </code>
           </div>
           <p className="text-sm text-muted-foreground mt-3">

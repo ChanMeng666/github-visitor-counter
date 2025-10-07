@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "GitHub Visitor Counter - Show International Reach",
     description: "Free tool to display visitor country flags on GitHub profiles. Real-time configuration, multiple themes, zero maintenance.",
-    url: "https://github-visitor-counter-zeta.vercel.app",
+    url: "https://github-visitor-counter-tau.vercel.app",
     siteName: "GitHub Visitor Counter",
     images: [
       {
-        url: "https://github-visitor-counter-zeta.vercel.app/github-visitor-counter-logo.svg",
+        url: "https://github-visitor-counter-tau.vercel.app/github-visitor-counter-logo.svg",
         width: 1200,
         height: 630,
         alt: "GitHub Visitor Counter",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GitHub Visitor Counter - International Reach Visualization",
     description: "Free GitHub visitor counter with country flags. Show global impact with customizable themes.",
-    images: ["https://github-visitor-counter-zeta.vercel.app/github-visitor-counter-logo.svg"],
+    images: ["https://github-visitor-counter-tau.vercel.app/github-visitor-counter-logo.svg"],
   },
   robots: {
     index: true,

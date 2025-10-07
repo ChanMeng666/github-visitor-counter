@@ -1,5 +1,5 @@
 export const FLAG_COUNTER_BASE_URL = 'https://s01.flagcounter.com';
-export const API_BASE_URL = 'https://github-visitor-counter-zeta.vercel.app';
+export const API_BASE_URL = 'https://github-visitor-counter-tau.vercel.app';
 
 export const DEFAULTS = {
   COLUMNS: 2,
