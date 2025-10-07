@@ -4,9 +4,9 @@
 
 # 🌍 GitHub Visitor Counter<br/><h3>Display visitor country flags on your GitHub profile</h3>
 
-An elegant and customizable visitor counter that displays country flags of your GitHub profile visitors.<br/>
-Track and showcase where your visitors come from with multiple themes, layouts, and real-time configuration.<br/>
-One-click **FREE** deployment with zero maintenance required.
+An elegant and highly customizable visitor counter that displays country flags of your GitHub profile visitors.<br/>
+Track and showcase your global audience with multiple themes, flexible layouts, and real-time configuration.<br/>
+One-click **FREE** deployment with zero maintenance required. Built with Next.js and modern React.
 
 [🚀 Live Demo](https://github-visitor-counter-zeta.vercel.app) · [📖 Documentation](#-usage-guide) · [🎨 Configuration Tool](https://github-visitor-counter-zeta.vercel.app) · [🐛 Issues](https://github.com/ChanMeng666/github-visitor-counter/issues)
 
@@ -100,11 +100,11 @@ Replace `YOUR_USERNAME` with your actual GitHub username. That's it! 🎉
 
 <div align="center">
 
- <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
- <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"/>
- <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
- <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
- <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+ <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+ <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+ <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+ <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+ <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
 
 </div>
 
@@ -283,20 +283,20 @@ Beyond the core functionality, this project includes:
   <table>
     <tr>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/javascript" width="48" height="48" alt="JavaScript" />
-        <br>JavaScript ES6+
+        <img src="https://cdn.simpleicons.org/nextdotjs" width="48" height="48" alt="Next.js" />
+        <br>Next.js 15
       </td>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/nodedotjs" width="48" height="48" alt="Node.js" />
-        <br>Node.js
+        <img src="https://cdn.simpleicons.org/react" width="48" height="48" alt="React" />
+        <br>React 19
       </td>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/html5" width="48" height="48" alt="HTML5" />
-        <br>HTML5
+        <img src="https://cdn.simpleicons.org/typescript" width="48" height="48" alt="TypeScript" />
+        <br>TypeScript
       </td>
       <td align="center" width="96">
-        <img src="https://cdn.simpleicons.org/css3" width="48" height="48" alt="CSS3" />
-        <br>CSS3
+        <img src="https://cdn.simpleicons.org/tailwindcss" width="48" height="48" alt="Tailwind CSS" />
+        <br>Tailwind CSS
       </td>
       <td align="center" width="96">
         <img src="https://cdn.simpleicons.org/vercel" width="48" height="48" alt="Vercel" />
@@ -307,15 +307,17 @@ Beyond the core functionality, this project includes:
 </div>
 
 **Backend Stack:**
+- **Framework**: Next.js 15 with App Router
 - **Runtime**: Node.js with ES6 modules
-- **Framework**: Serverless functions on Vercel
+- **API Routes**: Next.js API Routes for serverless functions
 - **External API**: Flag Counter service integration
 - **Caching**: Built-in CDN caching for performance
 
 **Frontend Stack:**
-- **Core**: Vanilla HTML, CSS, and JavaScript
-- **Styling**: Modern CSS with CSS variables
-- **Interactions**: Pure JavaScript with real-time updates
+- **Core**: React 19 with TypeScript
+- **Styling**: Tailwind CSS v3 with custom animations
+- **UI Components**: shadcn/ui component library
+- **Animations**: Framer Motion for smooth transitions
 - **Responsiveness**: Mobile-first responsive design
 
 **DevOps & Infrastructure:**
@@ -325,7 +327,7 @@ Beyond the core functionality, this project includes:
 - **Performance**: Global CDN with edge caching
 
 > [!TIP]
-> Each technology was selected for simplicity, performance, and zero-maintenance deployment.
+> Built with modern technologies for optimal performance, developer experience, and zero-maintenance deployment.
 
 ## 🏗️ Architecture
 
@@ -662,19 +664,37 @@ npm run build       # Build for production
 
 ```
 github-visitor-counter/
-├── api/                    # Vercel serverless functions
-│   └── index.js           # Main API endpoint
-├── src/                   # Source code
-│   ├── constants.js       # Configuration constants
-│   └── utils/            # Utility functions
-│       ├── params.js     # Parameter parsing
-│       └── flagCounter.js # Flag counter URL generation
-├── public/               # Static assets
-│   ├── css/             # Stylesheets
-│   ├── js/              # Frontend JavaScript
-│   └── index.html       # Configuration tool
-├── package.json         # Dependencies and scripts
-└── vercel.json         # Vercel configuration
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── api/                  # API routes
+│   │   │   └── route.ts          # Main API endpoint
+│   │   ├── dashboard/            # Dashboard page
+│   │   ├── api-help/             # API documentation page
+│   │   ├── layout.tsx            # Root layout
+│   │   ├── page.tsx              # Homepage
+│   │   └── globals.css           # Global styles
+│   ├── components/               # React components
+│   │   ├── landing/              # Landing page sections
+│   │   ├── dashboard/            # Dashboard components
+│   │   ├── shared/               # Shared components
+│   │   └── ui/                   # UI components (shadcn/ui)
+│   ├── lib/                      # Utility functions
+│   │   ├── constants.ts          # Configuration constants
+│   │   └── utils.ts              # Helper functions
+│   ├── utils/                    # Legacy utility functions
+│   │   ├── params.js             # Parameter parsing
+│   │   └── flagCounter.js        # Flag counter URL generation
+│   └── constants.js              # Legacy constants
+├── public/                       # Static assets
+│   ├── *.svg                     # Logo and icon files
+│   ├── llms.txt                  # AI integration guide
+│   ├── robots.txt                # SEO configuration
+│   └── sitemap.xml               # Sitemap
+├── package.json                  # Dependencies and scripts
+├── next.config.mjs               # Next.js configuration
+├── tailwind.config.ts            # Tailwind CSS configuration
+├── tsconfig.json                 # TypeScript configuration
+└── vercel.json                   # Vercel configuration
 ```
 
 ## 🤝 Contributing
