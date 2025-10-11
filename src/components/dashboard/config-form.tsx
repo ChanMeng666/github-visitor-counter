@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Settings, Palette, Tag, Eye, Map, Minimize2 } from "lucide-react";
+import { Settings, Palette, Tag, Eye, Map, Minimize2, CheckCircle, XCircle } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -24,6 +24,29 @@ interface ConfigFormProps {
 
 export function ConfigForm({ config, onChange }: ConfigFormProps) {
   const [labelType, setLabelType] = useState<"visitors" | "none" | "custom">("visitors");
+  const [usernameStatus, setUsernameStatus] = useState<'idle' | 'valid' | 'invalid'>('idle');
+
+  const validateUsername = (username: string) => {
+    if (!username || username.trim() === '') {
+      setUsernameStatus('idle');
+      return;
+    }
+
+    // GitHub username rules: alphanumeric and hyphens, cannot start with hyphen
+    const githubUsernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+
+    if (githubUsernameRegex.test(username)) {
+      setUsernameStatus('valid');
+    } else {
+      setUsernameStatus('invalid');
+    }
+  };
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    onChange({ ...config, username: value });
+    validateUsername(value);
+  };
 
   const handleThemeChange = (theme: ThemeName) => {
     onChange({
@@ -56,14 +79,25 @@ export function ConfigForm({ config, onChange }: ConfigFormProps) {
             <Label htmlFor="username">
               GitHub Username <span className="text-destructive">*</span>
             </Label>
-            <Input
-              id="username"
-              placeholder="Enter your GitHub username"
-              value={config.username}
-              onChange={(e) => onChange({ ...config, username: e.target.value })}
-            />
-            <p className="text-xs text-muted-foreground">
-              Your GitHub username (e.g., ChanMeng666)
+            <div className="relative">
+              <Input
+                id="username"
+                placeholder="Enter your GitHub username"
+                value={config.username}
+                onChange={handleUsernameChange}
+                className={usernameStatus === 'invalid' ? 'border-destructive' : ''}
+              />
+              {usernameStatus === 'valid' && (
+                <CheckCircle className="absolute right-3 top-3 h-5 w-5 text-green-500" />
+              )}
+              {usernameStatus === 'invalid' && (
+                <XCircle className="absolute right-3 top-3 h-5 w-5 text-destructive" />
+              )}
+            </div>
+            <p className={`text-xs ${usernameStatus === 'invalid' ? 'text-destructive' : 'text-muted-foreground'}`}>
+              {usernameStatus === 'invalid'
+                ? 'Invalid username format. Use alphanumeric and hyphens only.'
+                : 'Your GitHub username (e.g., ChanMeng666)'}
             </p>
           </div>
 

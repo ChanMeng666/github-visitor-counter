@@ -127,3 +127,54 @@ export interface CounterConfig {
     border?: string;
   };
 }
+
+// Quick preset configurations
+export const QUICK_PRESETS = {
+  'dark-minimal': {
+    displayMode: 'topCountries' as DisplayMode,
+    theme: 'dark' as ThemeName,
+    columns: 2,
+    maxflags: 10,
+    label: 'none',
+    showcount: false,
+    showlabels: false,
+    visitortype: 'number' as VisitorType,
+    size: 'small' as FlagSize,
+  },
+  'light-detailed': {
+    displayMode: 'topCountries' as DisplayMode,
+    theme: 'default' as ThemeName,
+    columns: 4,
+    maxflags: 20,
+    label: 'Visitors',
+    showcount: true,
+    showlabels: true,
+    visitortype: 'number' as VisitorType,
+    size: 'medium' as FlagSize,
+  },
+  'github-style': {
+    displayMode: 'topCountries' as DisplayMode,
+    theme: 'github_dark' as ThemeName,
+    columns: 3,
+    maxflags: 15,
+    label: 'Visitors',
+    showcount: true,
+    showlabels: false,
+    visitortype: 'percentage' as VisitorType,
+    size: 'medium' as FlagSize,
+  },
+  'world-map': {
+    displayMode: 'flagMap' as DisplayMode,
+    theme: 'default' as ThemeName,
+    mapSize: 'medium' as MapSize,
+    label: 'Visitors',
+    showcount: true,
+  },
+  'mini-clean': {
+    displayMode: 'miniCounter' as DisplayMode,
+    theme: 'transparent' as ThemeName,
+    miniDisplay: 'flags' as MiniDisplay,
+  },
+} as const;
+
+export type PresetName = keyof typeof QUICK_PRESETS;
