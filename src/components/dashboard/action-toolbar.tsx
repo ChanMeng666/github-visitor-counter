@@ -36,7 +36,7 @@ export function ActionToolbar({
   );
 
   return (
-    <div className="flex flex-wrap gap-3 mb-6">
+    <div className="flex flex-wrap gap-3">
       {/* Reset to Defaults */}
       <Button onClick={onReset} variant="outline" size="default">
         <RotateCcw className="h-4 w-4 mr-2" />

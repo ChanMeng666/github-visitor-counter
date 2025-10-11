@@ -2,7 +2,7 @@
 
 export function PageHeader() {
   return (
-    <div className="mb-8 relative">
+    <div className="relative flex-1">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10 rounded-2xl -z-10 blur-sm" />
 

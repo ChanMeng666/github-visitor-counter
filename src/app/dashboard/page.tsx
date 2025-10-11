@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { ConfigForm } from "@/components/dashboard/config-form";
@@ -8,6 +8,9 @@ import { PreviewPanel } from "@/components/dashboard/preview-panel";
 import { ActionToolbar } from "@/components/dashboard/action-toolbar";
 import { PageHeader } from "@/components/dashboard/page-header";
 import { ConfigProgress } from "@/components/dashboard/config-progress";
+import { ConfigImportExport } from "@/components/dashboard/config-import-export";
+import { KeyboardShortcutsHelp } from "@/components/dashboard/keyboard-shortcuts-help";
+import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import type { CounterConfig } from "@/lib/constants";
 import { DEFAULTS, QUICK_PRESETS } from "@/lib/constants";
 
@@ -27,6 +30,11 @@ export default function DashboardPage() {
     mapSize: DEFAULTS.MAP_SIZE,
     miniDisplay: DEFAULTS.MINI_DISPLAY,
   });
+
+  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
+  const exportButtonRef = useRef<HTMLButtonElement>(null);
+  const importButtonRef = useRef<HTMLButtonElement>(null);
+  const copyMarkdownRef = useRef<HTMLButtonElement>(null);
 
   // Handler to reset all settings to defaults
   const handleReset = () => {
@@ -62,6 +70,51 @@ export default function DashboardPage() {
     });
   };
 
+  // Handler to import configuration
+  const handleImport = (importedConfig: CounterConfig) => {
+    setConfig(importedConfig);
+  };
+
+  // Keyboard shortcuts
+  useKeyboardShortcuts([
+    {
+      key: "r",
+      ctrlKey: true,
+      description: "Reset configuration",
+      action: handleReset,
+    },
+    {
+      key: "c",
+      ctrlKey: true,
+      shiftKey: true,
+      description: "Clear custom colors",
+      action: handleClearColors,
+    },
+    {
+      key: "e",
+      ctrlKey: true,
+      description: "Export configuration",
+      action: () => exportButtonRef.current?.click(),
+    },
+    {
+      key: "i",
+      ctrlKey: true,
+      description: "Import configuration",
+      action: () => importButtonRef.current?.click(),
+    },
+    {
+      key: "k",
+      ctrlKey: true,
+      description: "Copy markdown code",
+      action: () => copyMarkdownRef.current?.click(),
+    },
+    {
+      key: "?",
+      description: "Show keyboard shortcuts",
+      action: () => setShowShortcutsHelp((prev) => !prev),
+    },
+  ]);
+
   return (
     <main className="min-h-screen flex flex-col">
       <Header />
@@ -69,15 +122,21 @@ export default function DashboardPage() {
       <div className="flex-1 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
           {/* Enhanced Page Header */}
-          <PageHeader />
+          <div className="flex items-start justify-between gap-4 mb-8">
+            <PageHeader />
+            <KeyboardShortcutsHelp />
+          </div>
 
-          {/* Action Toolbar */}
-          <ActionToolbar
-            config={config}
-            onReset={handleReset}
-            onClearColors={handleClearColors}
-            onApplyPreset={handleApplyPreset}
-          />
+          {/* Action Toolbar and Import/Export */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <ActionToolbar
+              config={config}
+              onReset={handleReset}
+              onClearColors={handleClearColors}
+              onApplyPreset={handleApplyPreset}
+            />
+            <ConfigImportExport config={config} onImport={handleImport} />
+          </div>
 
           {/* Configuration Progress Indicator */}
           <ConfigProgress config={config} />
