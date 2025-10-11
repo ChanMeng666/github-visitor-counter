@@ -16,7 +16,7 @@ interface ActionToolbarProps {
   config: CounterConfig;
   onReset: () => void;
   onClearColors: () => void;
-  onApplyPreset: (preset: Partial<CounterConfig>) => void;
+  onApplyPreset: (presetKey: PresetName) => void;
 }
 
 export function ActionToolbar({
@@ -26,14 +26,7 @@ export function ActionToolbar({
   onApplyPreset,
 }: ActionToolbarProps) {
   const handlePresetClick = (presetName: PresetName) => {
-    const preset = QUICK_PRESETS[presetName];
-    onApplyPreset({
-      ...preset,
-      username: config.username, // Preserve username
-      flagsFromCountry: DEFAULTS.FLAGS_FROM_COUNTRY,
-      mapSize: preset.mapSize || DEFAULTS.MAP_SIZE,
-      miniDisplay: preset.miniDisplay || DEFAULTS.MINI_DISPLAY,
-    });
+    onApplyPreset(presetName);
   };
 
   const hasCustomColors = Boolean(

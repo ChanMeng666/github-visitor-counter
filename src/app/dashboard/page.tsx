@@ -55,7 +55,11 @@ export default function DashboardPage() {
   // Handler to apply quick preset
   const handleApplyPreset = (presetKey: keyof typeof QUICK_PRESETS) => {
     const preset = QUICK_PRESETS[presetKey];
-    setConfig({ ...config, ...preset });
+    setConfig({
+      ...config,
+      ...preset,
+      username: config.username, // Preserve username
+    });
   };
 
   return (
