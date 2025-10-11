@@ -11,15 +11,18 @@ import { DEFAULTS } from "@/lib/constants";
 export default function DashboardPage() {
   const [config, setConfig] = useState<CounterConfig>({
     username: "",
+    displayMode: DEFAULTS.DISPLAY_MODE,
     theme: "default",
     columns: DEFAULTS.COLUMNS,
     maxflags: DEFAULTS.MAX_FLAGS,
     label: DEFAULTS.LABEL,
     showcount: DEFAULTS.SHOW_COUNT,
     showlabels: DEFAULTS.SHOW_LABELS,
-    flagsfrom: DEFAULTS.FLAGS_FROM as any,
-    visitortype: DEFAULTS.VISITOR_TYPE as any,
-    size: DEFAULTS.FLAG_SIZE as any,
+    flagsFromCountry: DEFAULTS.FLAGS_FROM_COUNTRY,
+    visitortype: DEFAULTS.VISITOR_TYPE,
+    size: DEFAULTS.FLAG_SIZE,
+    mapSize: DEFAULTS.MAP_SIZE,
+    miniDisplay: DEFAULTS.MINI_DISPLAY,
   });
 
   return (

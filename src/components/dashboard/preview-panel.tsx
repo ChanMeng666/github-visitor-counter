@@ -5,8 +5,7 @@ import { Copy, Check, Eye, Info } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { CounterConfig } from "@/lib/constants";
-import { API_BASE_URL } from "@/lib/constants";
-import Image from "next/image";
+import { API_BASE_URL, THEMES } from "@/lib/constants";
 
 interface PreviewPanelProps {
   config: CounterConfig;
@@ -19,52 +18,75 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
   const generateURL = () => {
     const params = new URLSearchParams();
     params.append("username", config.username || "github");
+    params.append("displayMode", config.displayMode);
 
+    // Theme
     if (config.theme !== "default") {
       params.append("theme", config.theme);
     }
 
-    if (config.flagsfrom !== "all") {
-      params.append("flagsfrom", config.flagsfrom);
+    // Top Countries & Flags From mode parameters
+    if (config.displayMode === "topCountries" || config.displayMode === "flagsFrom") {
+      if (config.columns && config.columns !== 2) {
+        params.append("columns", config.columns.toString());
+      }
+
+      if (config.maxflags && config.maxflags !== 10) {
+        params.append("maxflags", config.maxflags.toString());
+      }
+
+      if (config.showlabels) {
+        params.append("showlabels", "true");
+      }
+
+      if (config.visitortype && config.visitortype !== "number") {
+        params.append("visitortype", config.visitortype);
+      }
+
+      if (config.size && config.size !== "medium") {
+        params.append("size", config.size);
+      }
     }
 
-    if (config.columns !== 2) {
-      params.append("columns", config.columns.toString());
+    // Flags From specific
+    if (config.displayMode === "flagsFrom" && config.flagsFromCountry) {
+      params.append("flagsFromCountry", config.flagsFromCountry);
     }
 
-    if (config.maxflags !== 10) {
-      params.append("maxflags", config.maxflags.toString());
+    // Map mode specific
+    if (config.displayMode === "flagMap" && config.mapSize && config.mapSize !== "small") {
+      params.append("mapSize", config.mapSize);
     }
 
-    if (config.label !== "Visitors") {
-      params.append("label", config.label);
+    // Mini Counter specific
+    if (config.displayMode === "miniCounter" && config.miniDisplay && config.miniDisplay !== "flags") {
+      params.append("miniDisplay", config.miniDisplay);
     }
 
-    if (!config.showcount) {
-      params.append("showcount", "false");
+    // Label (for all except mini counter)
+    if (config.displayMode !== "miniCounter") {
+      if (config.label && config.label !== "Visitors") {
+        params.append("label", config.label);
+      }
+
+      if (config.showcount === false) {
+        params.append("showcount", "false");
+      }
     }
 
-    if (config.visitortype !== "number") {
-      params.append("visitortype", config.visitortype);
-    }
+    // Custom colors
+    const selectedTheme = THEMES[config.theme] || THEMES.default;
 
-    if (config.showlabels) {
-      params.append("showlabels", "true");
-    }
-
-    if (config.size !== "medium") {
-      params.append("size", config.size);
-    }
-
-    if (config.customColors?.bg) {
+    // Background color (not for map mode)
+    if (config.displayMode !== "flagMap" && config.customColors?.bg && config.customColors.bg !== selectedTheme.bg) {
       params.append("bg", config.customColors.bg);
     }
 
-    if (config.customColors?.text) {
+    if (config.customColors?.text && config.customColors.text !== selectedTheme.text) {
       params.append("text", config.customColors.text);
     }
 
-    if (config.customColors?.border) {
+    if (config.customColors?.border && config.customColors.border !== selectedTheme.border) {
       params.append("border", config.customColors.border);
     }
 
@@ -84,6 +106,22 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
     }
   };
 
+  // Get mode-specific info message
+  const getInfoMessage = () => {
+    switch (config.displayMode) {
+      case "topCountries":
+        return "Shows top countries visiting your GitHub profile with flag visualization";
+      case "flagMap":
+        return "Displays an interactive world map showing visitor distribution";
+      case "flagsFrom":
+        return `Shows detailed flag breakdown from ${config.flagsFromCountry === "us" ? "United States" : "Canada"}`;
+      case "miniCounter":
+        return "Compact counter showing either total flags or pageview count";
+      default:
+        return "Each parameter combination creates its own visitor counter";
+    }
+  };
+
   return (
     <div className="space-y-6 sticky top-24">
       <Card>
@@ -92,7 +130,12 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
             <Eye className="h-5 w-5" />
             Live Preview
           </CardTitle>
-          <CardDescription>Real-time preview of your visitor counter</CardDescription>
+          <CardDescription>
+            Real-time preview of your {config.displayMode === "topCountries" && "top countries counter"}
+            {config.displayMode === "flagMap" && "flag map"}
+            {config.displayMode === "flagsFrom" && "flags from counter"}
+            {config.displayMode === "miniCounter" && "mini counter"}
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="relative min-h-[200px] bg-muted/30 rounded-lg p-6 flex items-center justify-center">
@@ -113,9 +156,7 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
           <div className="bg-muted/50 border rounded-lg p-3">
             <div className="flex items-start gap-2 text-sm text-muted-foreground">
               <Info className="h-4 w-4 mt-0.5 flex-shrink-0" />
-              <p>
-                Each parameter combination creates its own visitor counter on Flag Counter's server.
-              </p>
+              <p>{getInfoMessage()}</p>
             </div>
           </div>
         </CardContent>
@@ -151,6 +192,7 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
             <h4 className="font-semibold mb-3 text-sm">Quick Start</h4>
             <ol className="text-sm text-muted-foreground space-y-2 list-decimal list-inside">
               <li>Enter your GitHub username</li>
+              <li>Select display mode</li>
               <li>Customize the appearance</li>
               <li>Copy the markdown code above</li>
               <li>Paste into your GitHub README.md</li>

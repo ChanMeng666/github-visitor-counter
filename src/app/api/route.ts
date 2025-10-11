@@ -1,26 +1,68 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseParams } from '@/lib/params';
+import { generateFlagCounterUrl } from '@/lib/flagCounter';
+import { DEFAULTS } from '@/lib/constants';
 
 export async function GET(request: NextRequest) {
   try {
-    const username = request.nextUrl.searchParams.get('username');
+    // Convert URLSearchParams to Record<string, string>
+    const query: Record<string, string> = {};
+    request.nextUrl.searchParams.forEach((value, key) => {
+      query[key] = value;
+    });
 
-    if (!username) {
-      throw new Error('Username parameter is required');
-    }
+    // Parse and validate parameters
+    const params = parseParams(query);
 
-    // Temporary simple redirect for testing
-    const flagCounterUrl = `https://s01.flagcounter.com/count2/test/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_Visitors/labels_0/pageviews_1/flags_1/percent_0/`;
+    // Generate Flag Counter URL based on all parameters
+    const flagCounterUrl = generateFlagCounterUrl(params);
 
+    // Create 301 redirect response
     const response = NextResponse.redirect(flagCounterUrl, 301);
-    response.headers.set('Cache-Control', 's-maxage=3600, stale-while-revalidate');
-    response.headers.set('X-GitHub-Username', username);
+
+    // Set cache headers for 1 hour
+    response.headers.set(
+      'Cache-Control',
+      `s-maxage=${DEFAULTS.CACHE_SECONDS}, stale-while-revalidate`
+    );
+
+    // Add custom header for debugging
+    response.headers.set('X-GitHub-Username', params.username);
 
     return response;
   } catch (error: unknown) {
+    console.error('Error processing request:', error);
+
     const errorMessage = error instanceof Error ? error.message : 'Invalid request parameters';
-    return NextResponse.json(
-      { error: errorMessage },
-      { status: 400 }
-    );
+
+    // Set shorter cache for errors (5 minutes)
+    const headers = {
+      'Cache-Control': 's-maxage=300',
+    };
+
+    // Check if request accepts HTML (browser request)
+    const acceptHeader = request.headers.get('accept');
+    const acceptsHtml = acceptHeader && acceptHeader.includes('text/html');
+
+    if (acceptsHtml) {
+      // Redirect to API help page for browser requests
+      const helpUrl = new URL('/api-help', request.nextUrl.origin);
+      const response = NextResponse.redirect(helpUrl, 302);
+      response.headers.set('Cache-Control', headers['Cache-Control']);
+      return response;
+    } else {
+      // Return JSON for API requests
+      return NextResponse.json(
+        {
+          error: errorMessage,
+          documentation: `${request.nextUrl.origin}/api-help`,
+          usage: 'https://github.com/ChanMeng666/github-visitor-counter#usage',
+        },
+        {
+          status: 400,
+          headers,
+        }
+      );
+    }
   }
 }
