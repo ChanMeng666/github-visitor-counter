@@ -5,8 +5,8 @@
 # 🌍 GitHub Visitor Counter<br/><h3>Display visitor country flags on your GitHub profile</h3>
 
 An elegant and highly customizable visitor counter that displays country flags of your GitHub profile visitors.<br/>
-Track and showcase your global audience with multiple themes, flexible layouts, and real-time configuration.<br/>
-One-click **FREE** deployment with zero maintenance required. Built with Next.js and modern React.
+Track and showcase your global audience with **four display modes**, multiple themes, flexible layouts, and real-time configuration.<br/>
+One-click **FREE** deployment with zero maintenance required. Built with Next.js 15, React 19, and TypeScript.
 
 [🚀 Live Demo](https://github-visitor-counter-tau.vercel.app) · [📖 Documentation](#-usage-guide) · [🎨 Configuration Tool](https://github-visitor-counter-tau.vercel.app) · [🐛 Issues](https://github.com/ChanMeng666/github-visitor-counter/issues)
 
@@ -111,7 +111,7 @@ Replace `YOUR_USERNAME` with your actual GitHub username. That's it! 🎉
 </div>
 
 > [!IMPORTANT]
-> This project demonstrates modern serverless architecture with Node.js and Vercel. It combines elegant frontend design with efficient backend API to provide seamless GitHub profile enhancement. Features include real-time configuration, multiple themes, and privacy-focused analytics.
+> This project demonstrates modern serverless architecture with Next.js 15 and Vercel. It combines elegant frontend design with efficient backend API to provide seamless GitHub profile enhancement. Features include four display modes, real-time configuration dashboard, keyboard shortcuts, import/export functionality, multiple themes, and privacy-focused analytics.
 
 <details>
 <summary><kbd>📑 Table of Contents</kbd></summary>
@@ -191,7 +191,7 @@ Replace `YOUR_USERNAME` with your actual GitHub username. That's it! 🎉
 
 We are passionate developers creating next-generation GitHub profile enhancement tools. By adopting modern serverless architecture and cutting-edge web technologies, we provide developers with powerful, scalable, and user-friendly solutions to showcase their global reach.
 
-Whether you're a solo developer or part of a large team, this visitor counter will help you visualize your international audience with style and precision. The project is actively maintained and continuously improved based on community feedback.
+Whether you're a solo developer or part of a large team, this visitor counter will help you visualize your international audience with style and precision. Choose from **four distinct display modes** to match your profile's aesthetic, and customize every aspect with our interactive dashboard. The project is actively maintained and continuously improved based on community feedback.
 
 > [!NOTE]
 > - No account required - works immediately
@@ -258,6 +258,7 @@ Choose from carefully crafted themes or create your own with custom colors. Our 
 
 Beyond the core functionality, this project includes:
 
+- [x] 🎭 **Four Display Modes**: Top Countries, Flag Map, Flags From (US/CA), Mini Counter
 - [x] 🌐 **Global Reach**: Display visitors from 200+ countries
 - [x] 📊 **Smart Analytics**: Show visitor count or percentage
 - [x] 🎯 **Flexible Layout**: 1-8 columns with up to 250 flags
@@ -266,8 +267,12 @@ Beyond the core functionality, this project includes:
 - [x] ⚡ **High Performance**: Cached responses for fast loading
 - [x] 🔒 **Privacy First**: No personal data collection or storage
 - [x] 🎨 **Custom Colors**: Full color customization with hex codes
+- [x] ⌨️ **Keyboard Shortcuts**: Dashboard productivity shortcuts (Ctrl+R, Ctrl+E, Ctrl+K, etc.)
+- [x] 💾 **Import/Export**: Save and load configurations as JSON
+- [x] 🚀 **Quick Presets**: Pre-configured settings for common use cases
 - [x] 🔧 **Easy Integration**: Single line of markdown code
 - [x] 🛡️ **Reliable**: 99.9% uptime with global CDN
+- [x] 🎯 **TypeScript**: Full type safety and modern development experience
 
 > ✨ More features are continuously being added based on community feedback.
 
@@ -309,22 +314,26 @@ Beyond the core functionality, this project includes:
 **Backend Stack:**
 - **Framework**: Next.js 15 with App Router
 - **Runtime**: Node.js with ES6 modules
-- **API Routes**: Next.js API Routes for serverless functions
-- **External API**: Flag Counter service integration
-- **Caching**: Built-in CDN caching for performance
+- **Language**: TypeScript with full type safety
+- **API Routes**: Next.js API Routes (`/src/app/api/route.ts`) for serverless functions
+- **External API**: Flag Counter service integration with 4 display modes
+- **Caching**: Built-in CDN caching (1-hour cache via s-maxage)
 
 **Frontend Stack:**
 - **Core**: React 19 with TypeScript
 - **Styling**: Tailwind CSS v3 with custom animations
 - **UI Components**: shadcn/ui component library
 - **Animations**: Framer Motion for smooth transitions
+- **State Management**: React hooks (useState, useRef, custom hooks)
 - **Responsiveness**: Mobile-first responsive design
+- **Pages**: Landing page, Interactive dashboard, API documentation
 
 **DevOps & Infrastructure:**
 - **Deployment**: Vercel serverless platform
 - **Domain**: Custom domain with SSL
 - **Monitoring**: Built-in analytics and error tracking
 - **Performance**: Global CDN with edge caching
+- **Build**: Optimized production builds with Next.js
 
 > [!TIP]
 > Built with modern technologies for optimal performance, developer experience, and zero-maintenance deployment.
@@ -431,47 +440,95 @@ sequenceDiagram
 
 All parameters are optional except `username`.
 
-| Parameter | Type | Default | Description | Values |
-|-----------|------|---------|-------------|--------|
-| `username` | string | **required** | Your GitHub username | Any valid GitHub username |
-| `theme` | string | `default` | Pre-defined color themes | `default`, `dark`, `github`, `github_dark`, `transparent` |
-| `columns` | number | `2` | Number of flag columns | `1-8` |
-| `maxflags` | number | `10` | Maximum number of flags to display | `1-250` |
-| `label` | string | `Visitors` | Label text above the counter | Any text or `none` to hide |
-| `showcount` | boolean | `true` | Show visitor count | `true`, `false` |
-| `visitortype` | string | `number` | Display type for visitors | `number`, `percentage` |
-| `showlabels` | boolean | `false` | Show country names | `true`, `false` |
-| `flagsfrom` | string | `all` | Filter flags by country | `all`, `us`, `ca` |
-| `size` | string | `medium` | Flag size | `small`, `medium`, `large` |
-| `bg` | string | Theme default | Background color (hex) | Any 6-digit hex color |
-| `text` | string | Theme default | Text color (hex) | Any 6-digit hex color |
-| `border` | string | Theme default | Border color (hex) | Any 6-digit hex color |
+### Required Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `username` | string | Your GitHub username |
+
+### Common Parameters (All Display Modes)
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `displayMode` | string | `topCountries` | `topCountries`, `flagMap`, `flagsFrom`, `miniCounter` |
+| `theme` | string | `default` | `default`, `dark`, `github`, `github_dark`, `transparent` |
+| `label` | string | `Visitors` | Any text or `none` to hide |
+| `showcount` | boolean | `true` | `true`, `false` |
+| `bg` | string | Theme default | Hex color without # (e.g., `0D1117`) |
+| `text` | string | Theme default | Hex color without # (e.g., `C9D1D9`) |
+| `border` | string | Theme default | Hex color without # (e.g., `30363D`) |
+
+### Top Countries & Flags From Modes
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `columns` | number | `2` | `1-8` |
+| `maxflags` | number | `10` | `1-250` |
+| `showlabels` | boolean | `false` | `true`, `false` (show country names) |
+| `visitortype` | string | `number` | `number`, `percentage` |
+| `size` | string | `medium` | `small`, `medium`, `large` |
+
+### Flags From Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `flagsFromCountry` | string | `us` | `us`, `ca` |
+
+### Flag Map Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `mapSize` | string | `small` | `tiny`, `small`, `medium`, `large` |
+
+### Mini Counter Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `miniDisplay` | string | `flags` | `flags` (flag count), `pageviews` (page views) |
 
 ## 🖼️ Examples
 
-### Basic Counter
+### Top Countries Mode (Default)
 ```markdown
-![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries)
 ```
-![Basic Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666)
+![Basic Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries)
 
-### Dark Theme with More Flags
+### Top Countries - Dark Theme with More Flags
 ```markdown
-![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=dark&maxflags=20)
 ```
-![Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&maxflags=20)
+![Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=dark&maxflags=20)
 
-### Custom Layout - 4 Columns
+### Top Countries - Custom Layout (4 Columns)
 ```markdown
-![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&columns=4&maxflags=16)
 ```
-![4 Columns Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&columns=4&maxflags=16)
+![4 Columns Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&columns=4&maxflags=16)
 
-### GitHub Dark Theme with Percentage
+### Flag Map Mode
 ```markdown
-![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagMap&mapSize=medium)
 ```
-![GitHub Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&visitortype=percentage)
+![Flag Map Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagMap&mapSize=medium)
+
+### Flags From US Mode
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagsFrom&flagsFromCountry=us&theme=github_dark)
+```
+![Flags From US Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagsFrom&flagsFromCountry=us&theme=github_dark)
+
+### Mini Counter Mode
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=miniCounter&theme=transparent)
+```
+![Mini Counter Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=miniCounter&theme=transparent)
+
+### Top Countries - GitHub Dark with Percentage
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=github_dark&visitortype=percentage)
+```
+![GitHub Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=github_dark&visitortype=percentage)
 
 ### No Label
 ```markdown
@@ -665,36 +722,57 @@ npm run build       # Build for production
 ```
 github-visitor-counter/
 ├── src/
-│   ├── app/                      # Next.js App Router
-│   │   ├── api/                  # API routes
-│   │   │   └── route.ts          # Main API endpoint
-│   │   ├── dashboard/            # Dashboard page
-│   │   ├── api-help/             # API documentation page
-│   │   ├── layout.tsx            # Root layout
-│   │   ├── page.tsx              # Homepage
-│   │   └── globals.css           # Global styles
-│   ├── components/               # React components
-│   │   ├── landing/              # Landing page sections
-│   │   ├── dashboard/            # Dashboard components
-│   │   ├── shared/               # Shared components
-│   │   └── ui/                   # UI components (shadcn/ui)
-│   ├── lib/                      # Utility functions
-│   │   ├── constants.ts          # Configuration constants
-│   │   └── utils.ts              # Helper functions
-│   ├── utils/                    # Legacy utility functions
-│   │   ├── params.js             # Parameter parsing
-│   │   └── flagCounter.js        # Flag counter URL generation
-│   └── constants.js              # Legacy constants
-├── public/                       # Static assets
-│   ├── *.svg                     # Logo and icon files
-│   ├── llms.txt                  # AI integration guide
-│   ├── robots.txt                # SEO configuration
-│   └── sitemap.xml               # Sitemap
-├── package.json                  # Dependencies and scripts
-├── next.config.mjs               # Next.js configuration
-├── tailwind.config.ts            # Tailwind CSS configuration
-├── tsconfig.json                 # TypeScript configuration
-└── vercel.json                   # Vercel configuration
+│   ├── app/                           # Next.js App Router
+│   │   ├── api/
+│   │   │   └── route.ts               # Main API endpoint (Next.js API Route)
+│   │   ├── dashboard/
+│   │   │   └── page.tsx               # Interactive configuration dashboard
+│   │   ├── api-help/
+│   │   │   └── page.tsx               # API documentation page
+│   │   ├── page.tsx                   # Landing page
+│   │   ├── layout.tsx                 # Root layout with metadata
+│   │   └── globals.css                # Global styles with Tailwind
+│   ├── components/                    # React components
+│   │   ├── ui/                        # shadcn/ui components
+│   │   │   ├── button.tsx, card.tsx, input.tsx, select.tsx, etc.
+│   │   │   └── animated-gradient-with-svg.tsx  # Custom SVG gradient
+│   │   ├── landing/                   # Landing page sections
+│   │   │   ├── hero-section.tsx       # Hero with CTA
+│   │   │   ├── features-section.tsx   # Feature highlights
+│   │   │   ├── live-demo-section.tsx  # Live demo showcase
+│   │   │   ├── how-it-works-section.tsx # Process explanation
+│   │   │   ├── cta-section.tsx        # Call to action
+│   │   │   └── infinite-flags-scroll.tsx # Animated flag carousel
+│   │   ├── dashboard/                 # Dashboard components
+│   │   │   ├── config-form.tsx        # Configuration form
+│   │   │   ├── preview-panel.tsx      # Live preview
+│   │   │   ├── action-toolbar.tsx     # Quick actions & presets
+│   │   │   ├── config-progress.tsx    # Progress indicator
+│   │   │   ├── config-import-export.tsx # JSON import/export
+│   │   │   ├── keyboard-shortcuts-help.tsx # Shortcuts docs
+│   │   │   └── page-header.tsx        # Dashboard header
+│   │   ├── shared/                    # Shared components
+│   │   │   ├── header.tsx             # Site header with navigation
+│   │   │   └── footer.tsx             # Site footer
+│   │   └── hooks/
+│   │       └── use-debounced-dimensions.tsx # Custom React hook
+│   ├── lib/                           # Utility libraries (TypeScript)
+│   │   ├── constants.ts               # Themes, defaults, display modes
+│   │   ├── params.ts                  # Parameter parsing & validation
+│   │   ├── flagCounter.ts             # URL generation (4 display modes)
+│   │   └── utils.ts                   # Helper utilities
+│   └── hooks/                         # Custom React hooks
+│       └── useKeyboardShortcuts.ts    # Keyboard shortcut management
+├── public/                            # Static assets
+│   ├── *.svg                          # Logos and icon files
+│   ├── llms.txt                       # AI integration guide
+│   ├── robots.txt                     # SEO configuration
+│   └── sitemap.xml                    # Sitemap
+├── package.json                       # Next.js 15, React 19, TypeScript
+├── next.config.mjs                    # Next.js configuration
+├── tailwind.config.ts                 # Tailwind CSS configuration
+├── tsconfig.json                      # TypeScript configuration
+└── vercel.json                        # Vercel CORS configuration
 ```
 
 ## 🤝 Contributing
@@ -736,10 +814,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⚠️ Important Notes
 
-1. **Privacy**: No personal data is stored. The service only tracks country-level visitor information.
-2. **Caching**: Counters are cached for 1 hour to improve performance.
-3. **Unique Counters**: Each parameter combination creates a unique counter.
-4. **Flag Display**: Some browsers may not display flag emojis correctly. The actual counter uses image flags.
+1. **Four Display Modes**: Choose from Top Countries, Flag Map, Flags From (US/CA), or Mini Counter to suit your needs.
+2. **Privacy**: No personal data is stored. The service only tracks country-level visitor information.
+3. **Caching**: Counters are cached for 1 hour (s-maxage=3600) to improve performance.
+4. **Unique Counters**: Each parameter combination creates a unique counter on Flag Counter's server.
+5. **TypeScript**: Full type safety with TypeScript throughout the codebase.
+6. **Modern Stack**: Built with Next.js 15, React 19, Tailwind CSS 3, and shadcn/ui.
+7. **Interactive Dashboard**: Use `/dashboard` for a visual configuration experience with live preview.
+8. **Keyboard Shortcuts**: Dashboard supports shortcuts like Ctrl+R (reset), Ctrl+E (export), Ctrl+K (copy markdown).
 
 ## 💬 Support
 

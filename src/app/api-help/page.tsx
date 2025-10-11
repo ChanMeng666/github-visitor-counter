@@ -74,6 +74,38 @@ export default function APIHelpPage() {
             </CardContent>
           </Card>
 
+          {/* Display Modes */}
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Display Modes</CardTitle>
+              <CardDescription>Choose from four different counter visualization styles</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="p-4 border rounded-lg">
+                  <h4 className="font-semibold mb-2">Top Countries (default)</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Shows flags of top visiting countries</p>
+                  <code className="text-xs bg-muted px-2 py-1 rounded">displayMode=topCountries</code>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h4 className="font-semibold mb-2">Flag Map</h4>
+                  <p className="text-sm text-muted-foreground mb-2">World map visualization of visitors</p>
+                  <code className="text-xs bg-muted px-2 py-1 rounded">displayMode=flagMap</code>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h4 className="font-semibold mb-2">Flags From</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Filter visitors by country (US/CA)</p>
+                  <code className="text-xs bg-muted px-2 py-1 rounded">displayMode=flagsFrom</code>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h4 className="font-semibold mb-2">Mini Counter</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Compact counter display</p>
+                  <code className="text-xs bg-muted px-2 py-1 rounded">displayMode=miniCounter</code>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Parameters */}
           <Card className="mb-8">
             <CardHeader>
@@ -81,97 +113,206 @@ export default function APIHelpPage() {
               <CardDescription>All available configuration options</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left p-3 font-semibold">Parameter</th>
-                      <th className="text-left p-3 font-semibold">Type</th>
-                      <th className="text-left p-3 font-semibold">Default</th>
-                      <th className="text-left p-3 font-semibold">Description</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-sm">
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">username</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">required</td>
-                      <td className="p-3">Your GitHub username</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">theme</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">default</td>
-                      <td className="p-3">default, dark, github, github_dark, transparent</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">columns</td>
-                      <td className="p-3">number</td>
-                      <td className="p-3 font-mono">2</td>
-                      <td className="p-3">Number of columns (1-8)</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">maxflags</td>
-                      <td className="p-3">number</td>
-                      <td className="p-3 font-mono">10</td>
-                      <td className="p-3">Maximum flags to display (1-250)</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">label</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">Visitors</td>
-                      <td className="p-3">Label text or "none" to hide</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">showcount</td>
-                      <td className="p-3">boolean</td>
-                      <td className="p-3 font-mono">true</td>
-                      <td className="p-3">Show visitor count</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">showlabels</td>
-                      <td className="p-3">boolean</td>
-                      <td className="p-3 font-mono">false</td>
-                      <td className="p-3">Show country names</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">visitortype</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">number</td>
-                      <td className="p-3">number or percentage</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">size</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">medium</td>
-                      <td className="p-3">small, medium, large</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">flagsfrom</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">all</td>
-                      <td className="p-3">all, us, ca</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">bg</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">-</td>
-                      <td className="p-3">Background color (hex without #)</td>
-                    </tr>
-                    <tr className="border-b bg-muted/30">
-                      <td className="p-3 font-mono text-primary">text</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">-</td>
-                      <td className="p-3">Text color (hex without #)</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="p-3 font-mono text-primary">border</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3 font-mono">-</td>
-                      <td className="p-3">Border color (hex without #)</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-sm">Required Parameters</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">username</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3">Your GitHub username</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-sm">Common Parameters (All Modes)</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Default</th>
+                        <th className="text-left p-3 font-semibold">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">displayMode</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">topCountries</td>
+                        <td className="p-3">topCountries, flagMap, flagsFrom, miniCounter</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">theme</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">default</td>
+                        <td className="p-3">default, dark, github, github_dark, transparent</td>
+                      </tr>
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">label</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">Visitors</td>
+                        <td className="p-3">Any text or "none" to hide</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">showcount</td>
+                        <td className="p-3">boolean</td>
+                        <td className="p-3 font-mono">true</td>
+                        <td className="p-3">true, false</td>
+                      </tr>
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">bg</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">theme default</td>
+                        <td className="p-3">Hex color without # (e.g., 0D1117)</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">text</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">theme default</td>
+                        <td className="p-3">Hex color without # (e.g., C9D1D9)</td>
+                      </tr>
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">border</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">theme default</td>
+                        <td className="p-3">Hex color without # (e.g., 30363D)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-sm">Top Countries & Flags From Modes</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Default</th>
+                        <th className="text-left p-3 font-semibold">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">columns</td>
+                        <td className="p-3">number</td>
+                        <td className="p-3 font-mono">2</td>
+                        <td className="p-3">1-8</td>
+                      </tr>
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">maxflags</td>
+                        <td className="p-3">number</td>
+                        <td className="p-3 font-mono">10</td>
+                        <td className="p-3">1-250</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">showlabels</td>
+                        <td className="p-3">boolean</td>
+                        <td className="p-3 font-mono">false</td>
+                        <td className="p-3">true, false (show country names)</td>
+                      </tr>
+                      <tr className="border-b bg-muted/30">
+                        <td className="p-3 font-mono text-primary">visitortype</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">number</td>
+                        <td className="p-3">number, percentage</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">size</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">medium</td>
+                        <td className="p-3">small, medium, large</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-sm">Flags From Mode Specific</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Default</th>
+                        <th className="text-left p-3 font-semibold">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">flagsFromCountry</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">us</td>
+                        <td className="p-3">us, ca</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-sm">Flag Map Mode Specific</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Default</th>
+                        <th className="text-left p-3 font-semibold">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">mapSize</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">small</td>
+                        <td className="p-3">tiny, small, medium, large</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-3 text-sm">Mini Counter Mode Specific</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left p-3 font-semibold">Parameter</th>
+                        <th className="text-left p-3 font-semibold">Type</th>
+                        <th className="text-left p-3 font-semibold">Default</th>
+                        <th className="text-left p-3 font-semibold">Values</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-sm">
+                      <tr className="border-b">
+                        <td className="p-3 font-mono text-primary">miniDisplay</td>
+                        <td className="p-3">string</td>
+                        <td className="p-3 font-mono">flags</td>
+                        <td className="p-3">flags (flag count), pageviews (page views)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -186,19 +327,46 @@ export default function APIHelpPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <h4 className="font-semibold mb-2">Dark Theme</h4>
+                <h4 className="font-semibold mb-2">Top Countries - Dark Theme</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=dark)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&displayMode=topCountries&theme=dark)
                   </code>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Custom Layout (4 columns, 16 flags)</h4>
+                <h4 className="font-semibold mb-2">Top Countries - Custom Layout (4 columns, 16 flags)</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&columns=4&maxflags=16)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&displayMode=topCountries&columns=4&maxflags=16)
+                  </code>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-2">Flag Map - Medium Size</h4>
+                <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
+                  <code className="text-sm text-slate-100 font-mono break-all">
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&displayMode=flagMap&mapSize=medium)
+                  </code>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-2">Flags From US - GitHub Dark Theme</h4>
+                <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
+                  <code className="text-sm text-slate-100 font-mono break-all">
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&displayMode=flagsFrom&flagsFromCountry=us&theme=github_dark)
+                  </code>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold mb-2">Mini Counter - Transparent Theme</h4>
+                <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
+                  <code className="text-sm text-slate-100 font-mono break-all">
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&displayMode=miniCounter&theme=transparent)
                   </code>
                 </div>
               </div>
@@ -213,10 +381,10 @@ export default function APIHelpPage() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">GitHub Dark Theme with Custom Colors</h4>
+                <h4 className="font-semibold mb-2">Custom Colors</h4>
                 <div className="bg-slate-900 rounded-md p-4 overflow-x-auto">
                   <code className="text-sm text-slate-100 font-mono break-all">
-                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=github_dark&bg=161B22&text=E6EDF3)
+                    ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&bg=161B22&text=E6EDF3&border=30363D)
                   </code>
                 </div>
               </div>
@@ -262,6 +430,16 @@ export default function APIHelpPage() {
               <div className="flex gap-3">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
                   4
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Four Display Modes</p>
+                  <p>Choose from Top Countries, Flag Map, Flags From (US/CA), or Mini Counter to best showcase your visitor statistics.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                  5
                 </div>
                 <div>
                   <p className="font-semibold text-foreground mb-1">Powered by Flag Counter</p>
