@@ -17,7 +17,25 @@ export function PreviewPanel({ config }: PreviewPanelProps) {
 
   const generateURL = () => {
     const params = new URLSearchParams();
-    params.append("username", config.username || "github");
+
+    // Identifier parameters
+    if (config.counterId) {
+      params.append("counterId", config.counterId);
+    } else if (config.username && config.repo) {
+      params.append("username", config.username);
+      params.append("repo", config.repo);
+    } else if (config.repo) {
+      params.append("repo", config.repo);
+    } else if (config.username && config.project) {
+      params.append("username", config.username);
+      params.append("project", config.project);
+    } else if (config.username) {
+      params.append("username", config.username);
+    } else {
+      // Fallback for preview
+      params.append("username", "github");
+    }
+
     params.append("displayMode", config.displayMode);
 
     // Theme

@@ -96,9 +96,14 @@ export type MiniDisplay = keyof typeof MINI_DISPLAY_TYPES;
 
 // Counter configuration interface
 export interface CounterConfig {
-  username: string;
+  username?: string;
   displayMode: DisplayMode;
   theme: ThemeName;
+
+  // Identifier parameters (for different counters)
+  counterId?: string;      // Official Flag Counter ID
+  repo?: string;           // Repository name or full path (username/repo)
+  project?: string;        // Custom project identifier
 
   // Top Countries & Flags From mode parameters
   columns?: number;
@@ -127,6 +132,16 @@ export interface CounterConfig {
     border?: string;
   };
 }
+
+// Usage scenario types
+export const USAGE_SCENARIOS = {
+  profile: 'profile',           // Global profile counter (username only)
+  repository: 'repository',     // Per-repository counter (username + repo)
+  customId: 'customId',        // Official Counter ID
+  customProject: 'customProject', // Custom project (username + project)
+} as const;
+
+export type UsageScenario = keyof typeof USAGE_SCENARIOS;
 
 // Quick preset configurations
 export const QUICK_PRESETS = {

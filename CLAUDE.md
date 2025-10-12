@@ -60,15 +60,21 @@ npm run deploy
 - Supports four display modes: topCountries, flagMap, flagsFrom, miniCounter
 
 **3. URL Generation** (`/src/lib/flagCounter.ts`)
-- Generates deterministic user IDs from GitHub usernames (MD5 hash, first 4 chars)
+- Generates unique counter IDs based on provided parameters
+- **Multiple identification methods** with priority:
+  1. Official Counter ID (`counterId`) - use directly
+  2. Username + Repo - for per-repository counters (6-char hash)
+  3. Full repo path (username/repo) - auto-parse (6-char hash)
+  4. Username + Project - for custom projects (6-char hash)
+  5. Username only - legacy support (4-char hash for backward compatibility)
 - Constructs Flag Counter URLs based on display mode
 - Four URL generation functions:
   - `generateTopCountriesUrl()`: Default mode showing top visiting countries
   - `generateFlagMapUrl()`: World map visualization
   - `generateFlagsFromUrl()`: Filter by specific country (US/CA)
   - `generateMiniCounterUrl()`: Compact counter display
-- Important: Same username + same parameters = same counter
-- Different parameters create different/independent counters
+- Important: Same identifier combination + same parameters = same counter
+- Different identifiers or parameters create different/independent counters
 
 **4. Configuration** (`/src/lib/constants.ts`)
 - Defines all themes with color schemes (default, dark, github, github_dark, transparent)
@@ -158,8 +164,17 @@ The application supports four distinct display modes, each generating different 
 
 ## API Parameters Reference
 
-**Required**:
-- `username`: GitHub username (string)
+**Identifier Parameters** (at least one required):
+- `username`: GitHub username (string) - for profile or combined with repo/project
+- `counterId`: Official Flag Counter ID (string) - from flagcounter.com
+- `repo`: Repository name or full path (string) - for per-repository counters
+- `project`: Custom project identifier (string) - for custom projects
+
+**Usage Scenarios**:
+- Profile counter: `username` only
+- Repository counter: `username` + `repo` or `repo` (full path)
+- Official ID: `counterId` only
+- Custom project: `username` + `project`
 
 **Optional - Common**:
 - `displayMode`: Counter display type - 'topCountries', 'flagMap', 'flagsFrom', 'miniCounter' (default: 'topCountries')

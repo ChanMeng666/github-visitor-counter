@@ -25,6 +25,7 @@ interface ConfigFormProps {
 export function ConfigForm({ config, onChange }: ConfigFormProps) {
   const [labelType, setLabelType] = useState<"visitors" | "none" | "custom">("visitors");
   const [usernameStatus, setUsernameStatus] = useState<'idle' | 'valid' | 'invalid'>('idle');
+  const [usageScenario, setUsageScenario] = useState<'profile' | 'repository' | 'customId' | 'customProject'>('profile');
 
   const validateUsername = (username: string) => {
     if (!username || username.trim() === '') {
@@ -76,9 +77,46 @@ export function ConfigForm({ config, onChange }: ConfigFormProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="username">
-              GitHub Username <span className="text-destructive">*</span>
-            </Label>
+            <Label htmlFor="usageScenario">Usage Scenario</Label>
+            <Select
+              value={usageScenario}
+              onValueChange={(value: any) => {
+                setUsageScenario(value);
+                // Clear identifier fields when changing scenario
+                onChange({
+                  ...config,
+                  username: undefined,
+                  counterId: undefined,
+                  repo: undefined,
+                  project: undefined
+                });
+                setUsernameStatus('idle');
+              }}
+            >
+              <SelectTrigger id="usageScenario">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="profile">👤 Profile README (Global Counter)</SelectItem>
+                <SelectItem value="repository">📁 Repository README (Per-Repo Counter)</SelectItem>
+                <SelectItem value="customId">🔑 Official Counter ID</SelectItem>
+                <SelectItem value="customProject">🎯 Custom Project</SelectItem>
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground">
+              {usageScenario === "profile" && "Track all visitors to your profile README (username only)"}
+              {usageScenario === "repository" && "Track visitors to a specific repository README (username + repo)"}
+              {usageScenario === "customId" && "Use your official Flag Counter ID with management dashboard"}
+              {usageScenario === "customProject" && "Track visitors to a custom project or website"}
+            </p>
+          </div>
+
+          {/* Username field - show for profile, repository, and customProject */}
+          {(usageScenario === 'profile' || usageScenario === 'repository' || usageScenario === 'customProject') && (
+            <div className="space-y-2">
+              <Label htmlFor="username">
+                GitHub Username <span className="text-destructive">*</span>
+              </Label>
             <div className="relative">
               <Input
                 id="username"
@@ -99,7 +137,71 @@ export function ConfigForm({ config, onChange }: ConfigFormProps) {
                 ? 'Invalid username format. Use alphanumeric and hyphens only.'
                 : 'Your GitHub username (e.g., ChanMeng666)'}
             </p>
-          </div>
+            </div>
+          )}
+
+          {/* Repository field - show only for repository scenario */}
+          {usageScenario === 'repository' && (
+            <div className="space-y-2">
+              <Label htmlFor="repo">
+                Repository Name <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="repo"
+                placeholder="e.g., gradient-svg-generator"
+                value={config.repo || ''}
+                onChange={(e) => onChange({ ...config, repo: e.target.value })}
+              />
+              <p className="text-xs text-muted-foreground">
+                Repository name or full path (e.g., "gradient-svg-generator" or "ChanMeng666/gradient-svg-generator")
+              </p>
+            </div>
+          )}
+
+          {/* Counter ID field - show only for customId scenario */}
+          {usageScenario === 'customId' && (
+            <div className="space-y-2">
+              <Label htmlFor="counterId">
+                Flag Counter ID <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="counterId"
+                placeholder="e.g., in9G"
+                value={config.counterId || ''}
+                onChange={(e) => onChange({ ...config, counterId: e.target.value })}
+              />
+              <p className="text-xs text-muted-foreground">
+                Your official Counter ID from{" "}
+                <a
+                  href="https://flagcounter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  flagcounter.com
+                </a>
+                {" "}(with management dashboard access)
+              </p>
+            </div>
+          )}
+
+          {/* Project field - show only for customProject scenario */}
+          {usageScenario === 'customProject' && (
+            <div className="space-y-2">
+              <Label htmlFor="project">
+                Project Identifier <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="project"
+                placeholder="e.g., my-portfolio"
+                value={config.project || ''}
+                onChange={(e) => onChange({ ...config, project: e.target.value })}
+              />
+              <p className="text-xs text-muted-foreground">
+                Unique identifier for your project (e.g., "my-blog", "portfolio-site")
+              </p>
+            </div>
+          )}
 
           <div className="space-y-2">
             <Label htmlFor="displayMode">Display Mode</Label>

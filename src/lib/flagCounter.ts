@@ -11,13 +11,61 @@ import {
 import { validateHexColor, sanitizeLabel, type ParsedParams } from './params';
 
 /**
- * Generate a unique 4-character user ID based on GitHub username
- * Uses MD5 hash to ensure the same username always gets the same ID
+ * Generate a unique counter ID based on the provided parameters
+ * Supports multiple identification methods with priority:
+ * 1. Official Counter ID (counterId) - use directly
+ * 2. Username + Repo - for per-repository counters
+ * 3. Full repo path (username/repo) - auto-parse
+ * 4. Username + Project - for custom projects
+ * 5. Username only - legacy support (global profile counter)
  */
-export function generateUserId(username: string): string {
-  const normalizedUsername = username.toLowerCase();
-  const hash = crypto.createHash('md5').update(normalizedUsername).digest('hex');
-  return hash.substring(0, 4);
+export function generateUserId(params: {
+  counterId?: string;
+  username?: string;
+  repo?: string;
+  project?: string;
+}): string {
+  const { counterId, username, repo, project } = params;
+
+  // Priority 1: Use official Counter ID directly
+  if (counterId) {
+    return counterId;
+  }
+
+  // Priority 2: Username + Repo combination (per-repository counter)
+  if (username && repo) {
+    const normalizedUsername = username.toLowerCase();
+    const normalizedRepo = repo.toLowerCase();
+    const combined = `${normalizedUsername}:${normalizedRepo}`;
+    const hash = crypto.createHash('md5').update(combined).digest('hex');
+    return hash.substring(0, 6); // Use 6 chars to reduce collision risk
+  }
+
+  // Priority 3: Full repo path (e.g., "ChanMeng666/gradient-svg-generator")
+  if (repo && repo.includes('/')) {
+    const normalizedRepo = repo.toLowerCase();
+    const hash = crypto.createHash('md5').update(normalizedRepo).digest('hex');
+    return hash.substring(0, 6);
+  }
+
+  // Priority 4: Username + Project combination (custom projects)
+  if (username && project) {
+    const normalizedUsername = username.toLowerCase();
+    const normalizedProject = project.toLowerCase();
+    const combined = `${normalizedUsername}:${normalizedProject}`;
+    const hash = crypto.createHash('md5').update(combined).digest('hex');
+    return hash.substring(0, 6);
+  }
+
+  // Priority 5: Username only (legacy, global profile counter)
+  if (username) {
+    const normalizedUsername = username.toLowerCase();
+    const hash = crypto.createHash('md5').update(normalizedUsername).digest('hex');
+    return hash.substring(0, 4); // Keep 4 chars for backward compatibility
+  }
+
+  // If none provided, throw error
+  throw new Error('Must provide at least one of: counterId, username, or repo');
 }
 
 /**
@@ -47,6 +95,9 @@ export function generateFlagCounterUrl(params: ParsedParams): string {
 function generateTopCountriesUrl(params: ParsedParams): string {
   const {
     username,
+    counterId,
+    repo,
+    project,
     columns,
     maxflags,
     label,
@@ -59,7 +110,7 @@ function generateTopCountriesUrl(params: ParsedParams): string {
     border,
   } = params;
 
-  const userId = generateUserId(username);
+  const userId = generateUserId({ counterId, username, repo, project });
   const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
   const textColor = validateHexColor(text) ? text : '000000';
   const borderColor = validateHexColor(border) ? border : 'CCCCCC';
@@ -94,9 +145,9 @@ function generateTopCountriesUrl(params: ParsedParams): string {
  * Format: /map/{userId}/size_X/txt_XXX/border_XXX/pageviews_X/viewers_XXX/flags_0/
  */
 function generateFlagMapUrl(params: ParsedParams): string {
-  const { username, mapSize, label, showcount, text, border } = params;
+  const { username, counterId, repo, project, mapSize, label, showcount, text, border } = params;
 
-  const userId = generateUserId(username);
+  const userId = generateUserId({ counterId, username, repo, project });
   const textColor = validateHexColor(text) ? text : '000000';
   const borderColor = validateHexColor(border) ? border : 'CCCCCC';
 
@@ -128,6 +179,9 @@ function generateFlagMapUrl(params: ParsedParams): string {
 function generateFlagsFromUrl(params: ParsedParams): string {
   const {
     username,
+    counterId,
+    repo,
+    project,
     flagsFromCountry,
     columns,
     maxflags,
@@ -141,7 +195,7 @@ function generateFlagsFromUrl(params: ParsedParams): string {
     border,
   } = params;
 
-  const userId = generateUserId(username);
+  const userId = generateUserId({ counterId, username, repo, project });
   const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
   const textColor = validateHexColor(text) ? text : '000000';
   const borderColor = validateHexColor(border) ? border : 'CCCCCC';
@@ -178,9 +232,9 @@ function generateFlagsFromUrl(params: ParsedParams): string {
  * Format: /mini/{userId}/bg_XXX/txt_XXX/border_XXX/flags_X/
  */
 function generateMiniCounterUrl(params: ParsedParams): string {
-  const { username, miniDisplay, bg, text, border } = params;
+  const { username, counterId, repo, project, miniDisplay, bg, text, border } = params;
 
-  const userId = generateUserId(username);
+  const userId = generateUserId({ counterId, username, repo, project });
   const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
   const textColor = validateHexColor(text) ? text : '000000';
   const borderColor = validateHexColor(border) ? border : 'CCCCCC';

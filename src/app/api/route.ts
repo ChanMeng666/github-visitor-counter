@@ -26,8 +26,19 @@ export async function GET(request: NextRequest) {
       `s-maxage=${DEFAULTS.CACHE_SECONDS}, stale-while-revalidate`
     );
 
-    // Add custom header for debugging
-    response.headers.set('X-GitHub-Username', params.username);
+    // Add custom headers for debugging
+    if (params.counterId) {
+      response.headers.set('X-Counter-ID', params.counterId);
+    }
+    if (params.username) {
+      response.headers.set('X-GitHub-Username', params.username);
+    }
+    if (params.repo) {
+      response.headers.set('X-Repository', params.repo);
+    }
+    if (params.project) {
+      response.headers.set('X-Project', params.project);
+    }
 
     return response;
   } catch (error: unknown) {

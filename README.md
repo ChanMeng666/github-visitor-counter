@@ -438,13 +438,36 @@ sequenceDiagram
 
 ## 📝 Parameters
 
-All parameters are optional except `username`.
+All parameters are optional except for the identifier parameters (at least one must be provided).
 
-### Required Parameters
+### Identifier Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `username` | string | Your GitHub username |
+You must provide **at least one** of the following to identify your counter:
+
+| Parameter | Type | Description | Use Case |
+|-----------|------|-------------|----------|
+| `username` | string | Your GitHub username | Global profile counter |
+| `username` + `repo` | string | Username and repository name | Per-repository counter |
+| `repo` | string | Full repository path (username/repo) | Shorthand for per-repository |
+| `counterId` | string | Official Flag Counter ID | Use management dashboard |
+| `username` + `project` | string | Username and custom identifier | Custom projects |
+
+**Examples:**
+```markdown
+# Global Profile Counter (tracks all profile visits)
+?username=ChanMeng666
+
+# Repository-Specific Counter (tracks specific repo visits)
+?username=ChanMeng666&repo=gradient-svg-generator
+# or
+?repo=ChanMeng666/gradient-svg-generator
+
+# Official Counter ID (with management dashboard)
+?counterId=in9G
+
+# Custom Project Counter
+?username=ChanMeng666&project=my-portfolio
+```
 
 ### Common Parameters (All Display Modes)
 
@@ -571,6 +594,23 @@ All parameters are optional except `username`.
 ![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
 ```
 ![US Only Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+
+### Per-Repository Counter
+```markdown
+<!-- Different counter for gradient-svg-generator repository -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=gradient-svg-generator)
+
+<!-- Different counter for github-visitor-counter repository -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=github-visitor-counter)
+```
+![Repo Counter Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=gradient-svg-generator)
+
+### Official Counter ID (With Management Dashboard)
+```markdown
+<!-- Use your official Counter ID from flagcounter.com -->
+![](https://github-visitor-counter-tau.vercel.app/api?counterId=in9G&theme=github_dark)
+```
+*Note: Replace `in9G` with your own Counter ID from [flagcounter.com](https://flagcounter.com)*
 
 ## 🎨 Themes
 
@@ -814,14 +854,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⚠️ Important Notes
 
-1. **Four Display Modes**: Choose from Top Countries, Flag Map, Flags From (US/CA), or Mini Counter to suit your needs.
-2. **Privacy**: No personal data is stored. The service only tracks country-level visitor information.
-3. **Caching**: Counters are cached for 1 hour (s-maxage=3600) to improve performance.
-4. **Unique Counters**: Each parameter combination creates a unique counter on Flag Counter's server.
-5. **TypeScript**: Full type safety with TypeScript throughout the codebase.
-6. **Modern Stack**: Built with Next.js 15, React 19, Tailwind CSS 3, and shadcn/ui.
-7. **Interactive Dashboard**: Use `/dashboard` for a visual configuration experience with live preview.
-8. **Keyboard Shortcuts**: Dashboard supports shortcuts like Ctrl+R (reset), Ctrl+E (export), Ctrl+K (copy markdown).
+1. **Multiple Counter Types**:
+   - **Profile Counter** (`username` only): Tracks all visitors to your profile
+   - **Repository Counter** (`username` + `repo`): Independent tracking for each repository
+   - **Official Counter ID** (`counterId`): Use your own Flag Counter ID with management dashboard
+   - **Custom Project** (`username` + `project`): For non-GitHub projects
+
+2. **Real Visitor Tracking**: Flag Counter tracks **real visitors** over time. New counters start from zero and accumulate as people visit your README. This is not a bug!
+
+3. **Four Display Modes**: Choose from Top Countries, Flag Map, Flags From (US/CA), or Mini Counter to suit your needs.
+
+4. **Privacy**: No personal data is stored. The service only tracks country-level visitor information.
+
+5. **Caching**: Counters are cached for 1 hour (s-maxage=3600) to improve performance.
+
+6. **Unique Counters**: Each parameter combination creates a unique counter on Flag Counter's server.
+
+7. **TypeScript**: Full type safety with TypeScript throughout the codebase.
+
+8. **Modern Stack**: Built with Next.js 15, React 19, Tailwind CSS 3, and shadcn/ui.
+
+9. **Interactive Dashboard**: Use `/dashboard` for a visual configuration experience with live preview.
+
+10. **Keyboard Shortcuts**: Dashboard supports shortcuts like Ctrl+R (reset), Ctrl+E (export), Ctrl+K (copy markdown).
 
 ## 💬 Support
 

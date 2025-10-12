@@ -16,8 +16,13 @@ import {
 } from './constants';
 
 export interface ParsedParams {
-  username: string;
+  username?: string;
   displayMode: DisplayMode;
+
+  // Identifier parameters (for different counters)
+  counterId?: string;      // Official Flag Counter ID
+  repo?: string;           // Repository name or full path (username/repo)
+  project?: string;        // Custom project identifier
 
   // Top Countries & Flags From mode parameters
   columns: number;
@@ -51,6 +56,9 @@ export interface ParsedParams {
 export function parseParams(query: Record<string, string | string[] | undefined>): ParsedParams {
   const {
     username,
+    counterId,
+    repo,
+    project,
     displayMode,
     theme = 'default',
     columns,
@@ -75,6 +83,9 @@ export function parseParams(query: Record<string, string | string[] | undefined>
   };
 
   const usernameStr = getString(username);
+  const counterIdStr = getString(counterId);
+  const repoStr = getString(repo);
+  const projectStr = getString(project);
   const displayModeStr = (getString(displayMode) as DisplayMode) || DEFAULTS.DISPLAY_MODE;
   const themeStr = getString(theme) as ThemeName;
   const columnsStr = getString(columns);
@@ -91,8 +102,9 @@ export function parseParams(query: Record<string, string | string[] | undefined>
   const textStr = getString(text);
   const borderStr = getString(border);
 
-  if (!usernameStr) {
-    throw new Error('Username parameter is required');
+  // Validate: Must provide at least one of counterId, username, or repo
+  if (!counterIdStr && !usernameStr && !repoStr) {
+    throw new Error('Must provide at least one of: counterId, username, or repo');
   }
 
   const selectedTheme = THEMES[themeStr] || THEMES.default;
@@ -106,8 +118,13 @@ export function parseParams(query: Record<string, string | string[] | undefined>
   parsedMaxFlags = Math.max(1, Math.min(250, parsedMaxFlags));
 
   const params: ParsedParams = {
-    username: usernameStr.trim(),
+    username: usernameStr?.trim(),
     displayMode: displayModeStr,
+
+    // Identifier parameters
+    counterId: counterIdStr?.trim(),
+    repo: repoStr?.trim(),
+    project: projectStr?.trim(),
 
     // Top Countries & Flags From parameters
     columns: parsedColumns,
