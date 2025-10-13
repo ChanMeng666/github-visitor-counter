@@ -2,6 +2,7 @@ import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { HeroSection } from "@/components/landing/hero-section";
 import { FeaturesSection } from "@/components/landing/features-section";
+import { ComparisonSection } from "@/components/landing/comparison-section";
 import { LiveDemoSection } from "@/components/landing/live-demo-section";
 import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { CTASection } from "@/components/landing/cta-section";
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <FeaturesSection />
+      <ComparisonSection />
       <LiveDemoSection />
       <HowItWorksSection />
       <CTASection />
