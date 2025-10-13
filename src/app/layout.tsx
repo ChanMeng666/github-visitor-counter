@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   keywords: ["GitHub profile", "visitor counter", "country flags", "developer tools", "international reach", "profile enhancement", "open source analytics"],
   authors: [{ name: "Chan Meng", url: "https://github.com/ChanMeng666" }],
   creator: "Chan Meng",
+  icons: {
+    icon: "/github-visitor-counter-logo-1.svg",
+    shortcut: "/github-visitor-counter-logo-1.svg",
+    apple: "/github-visitor-counter-logo-1.svg",
+  },
   openGraph: {
     type: "website",
     title: "GitHub Visitor Counter - Show International Reach",
