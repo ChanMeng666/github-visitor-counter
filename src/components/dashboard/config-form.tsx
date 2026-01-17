@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo, useCallback } from "react";
 import { Settings, Palette, Tag, Eye, Map, Minimize2, CheckCircle, XCircle } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,52 +17,54 @@ import { Switch } from "@/components/ui/switch";
 import type { CounterConfig, ThemeName, DisplayMode } from "@/lib/constants";
 import { THEMES } from "@/lib/constants";
 
+// Pre-compiled regex for performance
+const GITHUB_USERNAME_REGEX = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+const HEX_COLOR_REGEX = /[^0-9A-Fa-f]/g;
+
 interface ConfigFormProps {
   config: CounterConfig;
   onChange: (config: CounterConfig) => void;
 }
 
-export function ConfigForm({ config, onChange }: ConfigFormProps) {
+export const ConfigForm = memo(function ConfigForm({ config, onChange }: ConfigFormProps) {
   const [labelType, setLabelType] = useState<"visitors" | "none" | "custom">("visitors");
   const [usernameStatus, setUsernameStatus] = useState<'idle' | 'valid' | 'invalid'>('idle');
   const [usageScenario, setUsageScenario] = useState<'profile' | 'repository' | 'customId' | 'customProject'>('profile');
 
-  const validateUsername = (username: string) => {
+  // Use pre-compiled regex for validation
+  const validateUsername = useCallback((username: string) => {
     if (!username || username.trim() === '') {
       setUsernameStatus('idle');
       return;
     }
 
-    // GitHub username rules: alphanumeric and hyphens, cannot start with hyphen
-    const githubUsernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
-
-    if (githubUsernameRegex.test(username)) {
+    if (GITHUB_USERNAME_REGEX.test(username)) {
       setUsernameStatus('valid');
     } else {
       setUsernameStatus('invalid');
     }
-  };
+  }, []);
 
-  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUsernameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     onChange({ ...config, username: value });
     validateUsername(value);
-  };
+  }, [config, onChange, validateUsername]);
 
-  const handleThemeChange = (theme: ThemeName) => {
+  const handleThemeChange = useCallback((theme: ThemeName) => {
     onChange({
       ...config,
       theme,
       customColors: undefined, // Reset custom colors when changing theme
     });
-  };
+  }, [config, onChange]);
 
-  const handleDisplayModeChange = (displayMode: DisplayMode) => {
+  const handleDisplayModeChange = useCallback((displayMode: DisplayMode) => {
     onChange({
       ...config,
       displayMode,
     });
-  };
+  }, [config, onChange]);
 
   return (
     <div className="space-y-6 h-full overflow-y-auto pr-4">
@@ -587,4 +589,4 @@ export function ConfigForm({ config, onChange }: ConfigFormProps) {
       </Card>
     </div>
   );
-}
+});

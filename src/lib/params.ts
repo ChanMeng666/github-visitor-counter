@@ -2,7 +2,6 @@ import {
   DEFAULTS,
   FLAG_SIZES,
   THEMES,
-  FLAGS_FROM_COUNTRIES,
   VISITOR_TYPES,
   MAP_SIZES,
   MINI_DISPLAY_TYPES,
@@ -161,17 +160,5 @@ export function parseParams(query: Record<string, string | string[] | undefined>
   return params;
 }
 
-/**
- * Validate hex color format (6 characters, 0-9A-Fa-f)
- */
-export function validateHexColor(color: string): boolean {
-  return /^[0-9A-Fa-f]{6}$/.test(color);
-}
-
-/**
- * Sanitize label text - only allow alphanumeric, spaces, hyphens, underscores
- * Max length: 30 characters
- */
-export function sanitizeLabel(label: string): string {
-  return label.replace(/[^a-zA-Z0-9\s\-_]/g, '').substring(0, 30);
-}
+// Re-export validation functions from helpers for backward compatibility
+export { validateHexColor, sanitizeLabel } from './helpers';

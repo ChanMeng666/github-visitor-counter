@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Keyboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,40 +11,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { KEYBOARD_SHORTCUTS } from "@/lib/keyboardShortcuts";
 
-interface ShortcutItem {
-  keys: string[];
-  description: string;
-}
-
-const shortcuts: ShortcutItem[] = [
-  {
-    keys: ["Ctrl", "R"],
-    description: "Reset configuration to defaults",
-  },
-  {
-    keys: ["Ctrl", "Shift", "C"],
-    description: "Clear custom colors",
-  },
-  {
-    keys: ["Ctrl", "E"],
-    description: "Export configuration",
-  },
-  {
-    keys: ["Ctrl", "I"],
-    description: "Import configuration",
-  },
-  {
-    keys: ["Ctrl", "K"],
-    description: "Copy markdown code",
-  },
-  {
-    keys: ["?"],
-    description: "Show keyboard shortcuts",
-  },
-];
-
-export function KeyboardShortcutsHelp() {
+export const KeyboardShortcutsHelp = memo(function KeyboardShortcutsHelp() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -65,16 +34,16 @@ export function KeyboardShortcutsHelp() {
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4 py-4">
-          {shortcuts.map((shortcut, index) => (
+          {KEYBOARD_SHORTCUTS.map((shortcut) => (
             <div
-              key={index}
+              key={shortcut.id}
               className="flex items-center justify-between py-2 border-b last:border-0"
             >
               <span className="text-sm text-muted-foreground">
                 {shortcut.description}
               </span>
               <div className="flex gap-1">
-                {shortcut.keys.map((key, keyIndex) => (
+                {shortcut.displayKeys.map((key, keyIndex) => (
                   <kbd
                     key={keyIndex}
                     className="px-2 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500"
@@ -94,4 +63,4 @@ export function KeyboardShortcutsHelp() {
       </DialogContent>
     </Dialog>
   );
-}
+});

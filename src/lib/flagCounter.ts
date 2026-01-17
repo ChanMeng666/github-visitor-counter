@@ -1,14 +1,11 @@
-import crypto from 'crypto';
 import {
   FLAG_COUNTER_BASE_URL,
-  FLAG_SIZES,
   FLAGS_FROM_COUNTRIES,
-  VISITOR_TYPES,
-  MAP_SIZES,
-  MINI_DISPLAY_TYPES,
-  type DisplayMode,
 } from './constants';
-import { validateHexColor, sanitizeLabel, type ParsedParams } from './params';
+import type { ParsedParams } from './params';
+import { getValidColor, DEFAULT_COLORS } from './helpers/colorHelpers';
+import { processLabelForUrl } from './helpers/labelHelpers';
+import { computeHashCached } from './helpers/hashHelpers';
 
 /**
  * Generate a unique counter ID based on the provided parameters
@@ -34,34 +31,24 @@ export function generateUserId(params: {
 
   // Priority 2: Username + Repo combination (per-repository counter)
   if (username && repo) {
-    const normalizedUsername = username.toLowerCase();
-    const normalizedRepo = repo.toLowerCase();
-    const combined = `${normalizedUsername}:${normalizedRepo}`;
-    const hash = crypto.createHash('md5').update(combined).digest('hex');
-    return hash.substring(0, 6); // Use 6 chars to reduce collision risk
+    const combined = `${username.toLowerCase()}:${repo.toLowerCase()}`;
+    return computeHashCached(combined, 6); // Use 6 chars to reduce collision risk
   }
 
   // Priority 3: Full repo path (e.g., "ChanMeng666/gradient-svg-generator")
   if (repo && repo.includes('/')) {
-    const normalizedRepo = repo.toLowerCase();
-    const hash = crypto.createHash('md5').update(normalizedRepo).digest('hex');
-    return hash.substring(0, 6);
+    return computeHashCached(repo.toLowerCase(), 6);
   }
 
   // Priority 4: Username + Project combination (custom projects)
   if (username && project) {
-    const normalizedUsername = username.toLowerCase();
-    const normalizedProject = project.toLowerCase();
-    const combined = `${normalizedUsername}:${normalizedProject}`;
-    const hash = crypto.createHash('md5').update(combined).digest('hex');
-    return hash.substring(0, 6);
+    const combined = `${username.toLowerCase()}:${project.toLowerCase()}`;
+    return computeHashCached(combined, 6);
   }
 
   // Priority 5: Username only (legacy, global profile counter)
   if (username) {
-    const normalizedUsername = username.toLowerCase();
-    const hash = crypto.createHash('md5').update(normalizedUsername).digest('hex');
-    return hash.substring(0, 4); // Keep 4 chars for backward compatibility
+    return computeHashCached(username.toLowerCase(), 4); // Keep 4 chars for backward compatibility
   }
 
   // If none provided, throw error
@@ -111,18 +98,10 @@ function generateTopCountriesUrl(params: ParsedParams): string {
   } = params;
 
   const userId = generateUserId({ counterId, username, repo, project });
-  const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
-  const textColor = validateHexColor(text) ? text : '000000';
-  const borderColor = validateHexColor(border) ? border : 'CCCCCC';
-
-  // Process label
-  let labelParam = '';
-  if (label.toLowerCase() === 'none') {
-    labelParam = '0';
-  } else {
-    const sanitizedLabel = sanitizeLabel(label);
-    labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
-  }
+  const bgColor = getValidColor(bg, DEFAULT_COLORS.bg);
+  const textColor = getValidColor(text, DEFAULT_COLORS.text);
+  const borderColor = getValidColor(border, DEFAULT_COLORS.border);
+  const labelParam = processLabelForUrl(label);
 
   const flagParams = [
     `bg_${bgColor}`,
@@ -148,17 +127,9 @@ function generateFlagMapUrl(params: ParsedParams): string {
   const { username, counterId, repo, project, mapSize, label, showcount, text, border } = params;
 
   const userId = generateUserId({ counterId, username, repo, project });
-  const textColor = validateHexColor(text) ? text : '000000';
-  const borderColor = validateHexColor(border) ? border : 'CCCCCC';
-
-  // Process label
-  let labelParam = '';
-  if (label.toLowerCase() === 'none') {
-    labelParam = '0';
-  } else {
-    const sanitizedLabel = sanitizeLabel(label);
-    labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
-  }
+  const textColor = getValidColor(text, DEFAULT_COLORS.text);
+  const borderColor = getValidColor(border, DEFAULT_COLORS.border);
+  const labelParam = processLabelForUrl(label);
 
   const mapParams = [
     `size_${mapSize}`,
@@ -196,18 +167,10 @@ function generateFlagsFromUrl(params: ParsedParams): string {
   } = params;
 
   const userId = generateUserId({ counterId, username, repo, project });
-  const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
-  const textColor = validateHexColor(text) ? text : '000000';
-  const borderColor = validateHexColor(border) ? border : 'CCCCCC';
-
-  // Process label
-  let labelParam = '';
-  if (label.toLowerCase() === 'none') {
-    labelParam = '0';
-  } else {
-    const sanitizedLabel = sanitizeLabel(label);
-    labelParam = sanitizedLabel.replace(/\s+/g, '%2520');
-  }
+  const bgColor = getValidColor(bg, DEFAULT_COLORS.bg);
+  const textColor = getValidColor(text, DEFAULT_COLORS.text);
+  const borderColor = getValidColor(border, DEFAULT_COLORS.border);
+  const labelParam = processLabelForUrl(label);
 
   const flagParams = [
     `bg_${bgColor}`,
@@ -235,9 +198,9 @@ function generateMiniCounterUrl(params: ParsedParams): string {
   const { username, counterId, repo, project, miniDisplay, bg, text, border } = params;
 
   const userId = generateUserId({ counterId, username, repo, project });
-  const bgColor = validateHexColor(bg) ? bg : 'FFFFFF';
-  const textColor = validateHexColor(text) ? text : '000000';
-  const borderColor = validateHexColor(border) ? border : 'CCCCCC';
+  const bgColor = getValidColor(bg, DEFAULT_COLORS.bg);
+  const textColor = getValidColor(text, DEFAULT_COLORS.text);
+  const borderColor = getValidColor(border, DEFAULT_COLORS.border);
 
   const miniParams = [
     `bg_${bgColor}`,
