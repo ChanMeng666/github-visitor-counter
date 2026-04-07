@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s \"D:\\\\github_repository\\\\github-visitor-counter\\\\src\\\\app\")",
+      "Bash(npm run build:*)",
+      "Bash(npx next build:*)",
+      "Bash(cd:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx typescript:*)",
+      "Bash(./node_modules/.bin/tsc:*)",
+      "Bash(npm install:*)",
+      "Bash(./node_modules/.bin/next build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
