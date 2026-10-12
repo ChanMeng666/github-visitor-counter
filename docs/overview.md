@@ -1,0 +1,906 @@
+> This is the full project overview, moved here from the root README. The short version is the [README](../README.md).
+
+<div align="center"><a name="readme-top"></a>
+
+[![GitHub Visitor Counter](../public/github-visitor-counter-logo.svg)](#)
+
+# 🌍 GitHub Visitor Counter<br/><h3>Display visitor country flags on your GitHub profile</h3>
+
+An elegant and highly customizable visitor counter that displays country flags of your GitHub profile visitors.<br/>
+Track and showcase your global audience with **four display modes**, multiple themes, flexible layouts, and real-time configuration.<br/>
+One-click **FREE** deployment with zero maintenance required. Built with Next.js 15, React 19, and TypeScript.
+
+[🚀 Live Demo](https://github-visitor-counter-tau.vercel.app) · [📖 Documentation](#-usage-guide) · [🎨 Configuration Tool](https://github-visitor-counter-tau.vercel.app) · [🐛 Issues](https://github.com/ChanMeng666/github-visitor-counter/issues)
+
+<br/>
+
+[Try the live configuration tool](https://github-visitor-counter-tau.vercel.app)
+
+<br/>
+
+
+<sup>🌟 Pioneering GitHub profile enhancement. Built for developers worldwide.</sup>
+
+## 📸 Live Examples
+
+> [!TIP]
+> Click on any example to see it in action and customize it for your profile!
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Live%20Demo" alt="GitHub Dark Theme Demo" width="600"/>
+  </a>
+  <p><em>GitHub Dark Theme - 4 columns with 12 flags</em></p>
+</div>
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=10" alt="Default Theme Demo" width="300"/>
+  </a>
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark&columns=3&maxflags=15" alt="Dark Theme Demo" width="300"/>
+  </a>
+  <p><em>Default Theme (left) and Dark Theme (right)</em></p>
+</div>
+
+<details>
+<summary><kbd>🎨 More Theme Examples</kbd></summary>
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github&columns=3&maxflags=12" alt="GitHub Theme" width="400"/>
+  </a>
+  <p><em>GitHub Theme</em></p>
+</div>
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=transparent&columns=4&maxflags=16" alt="Transparent Theme" width="400"/>
+  </a>
+  <p><em>Transparent Theme</em></p>
+</div>
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5" alt="With Country Labels" width="300"/>
+  </a>
+  <p><em>With Country Labels</em></p>
+</div>
+
+</details>
+
+## 🚀 Quick Start
+
+**No registration, no configuration, no hassle.** Add this single line to your GitHub profile README:
+
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
+```
+
+Replace `YOUR_USERNAME` with your actual GitHub username. **That's it!** 🎉
+
+> [!TIP]
+> **Compared to official Flag Counter:**
+> - ✅ No account creation or email verification
+> - ✅ No waiting for approval
+> - ✅ Works instantly - just paste and go
+> - ✅ One line of markdown vs complex HTML code
+
+
+</div>
+
+> [!IMPORTANT]
+> This project demonstrates modern serverless architecture with Next.js 15 and Vercel. It combines elegant frontend design with efficient backend API to provide seamless GitHub profile enhancement. Features include four display modes, real-time configuration dashboard, keyboard shortcuts, import/export functionality, multiple themes, and privacy-focused analytics.
+
+<details>
+<summary><kbd>📑 Table of Contents</kbd></summary>
+
+#### TOC
+
+- [🌍 GitHub Visitor CounterDisplay visitor country flags on your GitHub profile](#-github-visitor-counterdisplay-visitor-country-flags-on-your-github-profile)
+  - [📸 Live Examples](#-live-examples)
+  - [🚀 Quick Start](#-quick-start)
+      - [TOC](#toc)
+      - [](#)
+  - [🌟 Introduction](#-introduction)
+  - [✨ Key Features](#-key-features)
+    - [`1` Real-time Configuration Tool](#1-real-time-configuration-tool)
+    - [`2` Multiple Themes \& Customization](#2-multiple-themes--customization)
+    - [`*` Additional Features](#-additional-features)
+  - [🛠️ Tech Stack](#️-tech-stack)
+  - [🏗️ Architecture](#️-architecture)
+    - [System Architecture](#system-architecture)
+    - [Data Flow](#data-flow)
+  - [⚡️ Performance](#️-performance)
+    - [Key Metrics](#key-metrics)
+  - [🚀 Installation](#-installation)
+    - [Basic Usage](#basic-usage)
+    - [With HTML (for more control)](#with-html-for-more-control)
+  - [📝 Parameters](#-parameters)
+  - [🖼️ Examples](#️-examples)
+    - [Basic Counter](#basic-counter)
+    - [Dark Theme with More Flags](#dark-theme-with-more-flags)
+    - [Custom Layout - 4 Columns](#custom-layout---4-columns)
+    - [GitHub Dark Theme with Percentage](#github-dark-theme-with-percentage)
+    - [No Label](#no-label)
+    - [Custom Label](#custom-label)
+    - [Show Country Names](#show-country-names)
+    - [Large Flags](#large-flags)
+    - [Custom Colors](#custom-colors)
+    - [Hide Visitor Count](#hide-visitor-count)
+    - [US Visitors Only](#us-visitors-only)
+  - [🎨 Themes](#-themes)
+    - [Default Theme](#default-theme)
+    - [Dark Theme](#dark-theme)
+    - [GitHub Theme](#github-theme)
+    - [GitHub Dark Theme](#github-dark-theme)
+    - [Transparent Theme](#transparent-theme)
+  - [🔧 Advanced Usage](#-advanced-usage)
+    - [Centering the Counter](#centering-the-counter)
+    - [Multiple Counters with Different Styles](#multiple-counters-with-different-styles)
+    - [With Caption](#with-caption)
+  - [📡 API Reference](#-api-reference)
+    - [Base URL](#base-url)
+    - [Request Method](#request-method)
+    - [Response](#response)
+    - [Rate Limiting](#rate-limiting)
+    - [Error Handling](#error-handling)
+  - [🛳 Self-Hosting](#-self-hosting)
+    - [Deploy to Vercel](#deploy-to-vercel)
+    - [Local Development](#local-development)
+  - [⌨️ Development](#️-development)
+    - [Development Scripts](#development-scripts)
+    - [Project Structure](#project-structure)
+  - [🤝 Contributing](#-contributing)
+    - [Development Process](#development-process)
+    - [Contribution Guidelines](#contribution-guidelines)
+    - [Areas for Contribution](#areas-for-contribution)
+  - [📄 License](#-license)
+  - [🙏 Credits](#-credits)
+  - [⚠️ Important Notes](#️-important-notes)
+  - [💬 Support](#-support)
+
+####
+
+<br/>
+
+</details>
+
+## 🌟 Introduction
+
+We are passionate developers creating next-generation GitHub profile enhancement tools. By adopting modern serverless architecture and cutting-edge web technologies, we provide developers with powerful, scalable, and user-friendly solutions to showcase their global reach.
+
+Whether you're a solo developer or part of a large team, this visitor counter will help you visualize your international audience with style and precision. Choose from **four distinct display modes** to match your profile's aesthetic, and customize every aspect with our interactive dashboard. The project is actively maintained and continuously improved based on community feedback.
+
+### 🚀 Why Choose Our Solution?
+
+**Compared to official Flag Counter**, our solution offers:
+
+| Feature | Our Solution | Official Flag Counter |
+|---------|-------------|----------------------|
+| **Zero Configuration** | ✅ No registration needed | ❌ Account required |
+| **Per-Repository Counters** | ✅ Independent tracking | ❌ Not available |
+| **Real-time Dashboard** | ✅ Live preview & instant feedback | ❌ Form-based only |
+| **One-line Integration** | ✅ Single markdown line | ⚠️ HTML code required |
+| **Keyboard Shortcuts** | ✅ Productivity features | ❌ Not available |
+| **Config Import/Export** | ✅ Save & share configs | ❌ Not available |
+| **Open Source** | ✅ MIT License, self-hostable | ❌ Proprietary |
+| **Modern Tech Stack** | ✅ Next.js 15, React 19, TypeScript | ⚠️ Traditional stack |
+| **Official ID Compatible** | ✅ Use official Counter IDs | ✅ Native support |
+| **Analytics Dashboard** | ⚠️ Via official ID integration | ✅ Built-in |
+
+**🎯 Best of Both Worlds**: Our solution is **fully compatible** with official Flag Counter IDs. Use our streamlined interface for quick setup, or integrate your existing Counter ID to access the official analytics dashboard!
+
+> [!NOTE]
+> - **Instant Setup** - No account required, works immediately
+> - **Developer First** - Built by developers for developers
+> - **Modern Workflow** - Git-friendly, keyboard shortcuts, config as code
+> - **Zero Maintenance** - Serverless architecture, scales automatically
+> - **100% Free** - Open source MIT license, deploy anywhere
+
+| [Try the demo](https://github-visitor-counter-tau.vercel.app) | No installation required! Visit our live demo to customize your counter instantly.                           |
+| :------------------------------------ | :----------------------------------------------------------------------------------------------------------- |
+| [Star on GitHub](https://github.com/ChanMeng666/github-visitor-counter) | Star us on GitHub! Get notifications for new themes and features. |
+
+> [!TIP]
+> **⭐ Star us** to receive all release notifications from GitHub without delay!
+
+
+## ✨ Key Features
+
+### `1` Real-time Configuration Tool
+
+Experience our interactive configuration tool that provides instant preview of your visitor counter. Our innovative web interface allows you to customize every aspect of your counter with real-time visual feedback.
+
+<div align="center">
+  <a href="https://github-visitor-counter-tau.vercel.app">
+    <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Interactive%20Tool" alt="Configuration Tool Demo" width="600"/>
+  </a>
+  <p><em>Interactive Configuration Tool - Try it live!</em></p>
+</div>
+
+Key capabilities include:
+- 🎨 **Live Preview**: See changes instantly as you customize
+- 📋 **Copy-Ready Code**: Generated markdown code ready to use
+- 🎯 **Smart Defaults**: Optimized settings for best appearance
+- 🔄 **Real-time Updates**: No refresh needed for parameter changes
+
+
+### `2` Multiple Themes & Customization
+
+Choose from carefully crafted themes or create your own with custom colors. Our theme system supports both light and dark modes with GitHub-native styling options.
+
+<div align="center">
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default&columns=2&maxflags=8" alt="Default Theme" width="280"/>
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=2&maxflags=8" alt="GitHub Dark Theme" width="280"/>
+  <p><em>Default Theme (left) and GitHub Dark Theme (right)</em></p>
+</div>
+
+**Available Themes:**
+- **Default**: Clean white background with subtle borders
+- **Dark**: Modern dark theme perfect for dark-mode profiles
+- **GitHub**: Native GitHub styling integration
+- **GitHub Dark**: GitHub's dark theme variant
+- **Transparent**: Seamless integration with any background
+
+
+### `*` Developer-Friendly Features
+
+What makes our solution stand out:
+
+**🎯 Zero Configuration & Instant Setup**
+- [x] **No Registration**: Start tracking immediately with just your GitHub username
+- [x] **One-line Integration**: Single markdown line - no complex HTML required
+- [x] **Per-Repository Tracking**: Independent counters for each of your projects
+- [x] **Official ID Compatible**: Use your existing flagcounter.com ID if you have one
+
+**⚡ Modern Developer Experience**
+- [x] **Real-time Dashboard**: Live preview with instant visual feedback
+- [x] **Keyboard Shortcuts**: Productivity shortcuts (Ctrl+R reset, Ctrl+E export, Ctrl+K copy)
+- [x] **Import/Export Configs**: Save configurations as JSON, share with team
+- [x] **Quick Presets**: Pre-configured setups for common use cases
+- [x] **TypeScript**: Full type safety throughout the codebase
+
+**🎨 Powerful Customization**
+- [x] **Four Display Modes**: Top Countries, Flag Map, Flags From (US/CA), Mini Counter
+- [x] **Multiple Themes**: Default, Dark, GitHub, GitHub Dark, Transparent
+- [x] **Custom Colors**: Full hex color customization
+- [x] **Flexible Layouts**: 1-8 columns, up to 250 flags
+- [x] **Custom Labels**: Personalized text or hide labels entirely
+
+**🚀 Production-Ready**
+- [x] **High Performance**: Cached responses via global CDN (< 100ms response time)
+- [x] **99.9% Uptime**: Powered by Vercel's infrastructure
+- [x] **Privacy First**: No personal data collection or storage
+- [x] **Responsive Design**: Perfect display on all devices
+- [x] **Open Source**: MIT license, self-hostable, full code transparency
+
+> ✨ Built with Next.js 15, React 19, and TypeScript for optimal performance and developer experience.
+
+
+## 🛠️ Tech Stack
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="96">Next.js 15
+      </td>
+      <td align="center" width="96">React 19
+      </td>
+      <td align="center" width="96">TypeScript
+      </td>
+      <td align="center" width="96">Tailwind CSS
+      </td>
+      <td align="center" width="96">Vercel
+      </td>
+    </tr>
+  </table>
+</div>
+
+**Backend Stack:**
+- **Framework**: Next.js 15 with App Router
+- **Runtime**: Node.js with ES6 modules
+- **Language**: TypeScript with full type safety
+- **API Routes**: Next.js API Routes (`/src/app/api/route.ts`) for serverless functions
+- **External API**: Flag Counter service integration with 4 display modes
+- **Caching**: Built-in CDN caching (1-hour cache via s-maxage)
+
+**Frontend Stack:**
+- **Core**: React 19 with TypeScript
+- **Styling**: Tailwind CSS v3 with custom animations
+- **UI Components**: shadcn/ui component library
+- **Animations**: Framer Motion for smooth transitions
+- **State Management**: React hooks (useState, useRef, custom hooks)
+- **Responsiveness**: Mobile-first responsive design
+- **Pages**: Landing page, Interactive dashboard, API documentation
+
+**DevOps & Infrastructure:**
+- **Deployment**: Vercel serverless platform
+- **Domain**: Custom domain with SSL
+- **Monitoring**: Built-in analytics and error tracking
+- **Performance**: Global CDN with edge caching
+- **Build**: Optimized production builds with Next.js
+
+> [!TIP]
+> Built with modern technologies for optimal performance, developer experience, and zero-maintenance deployment.
+
+## 🏗️ Architecture
+
+### System Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        A[GitHub Profile] --> B[Visitor Counter Image]
+        C[Configuration Tool] --> D[Live Preview]
+    end
+    
+    subgraph "Vercel Platform"
+        E[API Endpoint] --> F[Parameter Processing]
+        F --> G[URL Generation]
+        G --> H[Flag Counter Service]
+    end
+    
+    subgraph "External Services"
+        I[Flag Counter API]
+        J[Country Detection]
+        K[Flag Images]
+    end
+    
+    B --> E
+    D --> E
+    H --> I
+    I --> J
+    I --> K
+    
+    subgraph "Caching Layer"
+        L[Vercel CDN]
+        M[Browser Cache]
+    end
+    
+    E --> L
+    L --> M
+```
+
+### Data Flow
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant G as GitHub
+    participant V as Vercel API
+    participant F as Flag Counter
+    participant C as CDN
+    
+    U->>G: Views GitHub Profile
+    G->>V: Requests Counter Image
+    V->>V: Parse Parameters
+    V->>F: Generate Flag Counter URL
+    F->>C: Return Flag Image
+    C->>V: Cached Response
+    V->>G: Redirect to Image
+    G->>U: Display Counter
+```
+
+## ⚡️ Performance
+
+### Key Metrics
+
+**Performance Characteristics:**
+- ⚡ **< 100ms** API response time
+- 🚀 **< 1s** Image loading time
+- 📊 **99.9%** uptime reliability
+- 🔄 **1 hour** cache duration for optimal performance
+
+**Optimization Features:**
+- 🎯 **Smart Caching**: Aggressive CDN caching strategy
+- 📦 **Lightweight**: Zero external dependencies
+- 🌐 **Global CDN**: Vercel's worldwide edge network
+- 🔧 **Efficient Processing**: Minimal server computation
+
+> [!NOTE]
+> Performance is continuously monitored and optimized for the best user experience.
+
+## 🚀 Installation
+
+### Basic Usage
+
+1. Copy the markdown code:
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
+```
+
+2. Paste it into your GitHub profile README.md
+
+3. Replace `YOUR_USERNAME` with your GitHub username
+
+### With HTML (for more control)
+
+```html
+<div align="center">
+  <img src="https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME" alt="Visitor Counter">
+</div>
+```
+
+## 📝 Parameters
+
+All parameters are optional except for the identifier parameters (at least one must be provided).
+
+### Identifier Parameters
+
+You must provide **at least one** of the following to identify your counter:
+
+| Parameter | Type | Description | Use Case |
+|-----------|------|-------------|----------|
+| `username` | string | Your GitHub username | Global profile counter |
+| `username` + `repo` | string | Username and repository name | Per-repository counter |
+| `repo` | string | Full repository path (username/repo) | Shorthand for per-repository |
+| `counterId` | string | Official Flag Counter ID | Use management dashboard |
+| `username` + `project` | string | Username and custom identifier | Custom projects |
+
+**Examples:**
+```markdown
+# Global Profile Counter (tracks all profile visits)
+?username=ChanMeng666
+
+# Repository-Specific Counter (tracks specific repo visits)
+?username=ChanMeng666&repo=gradient-svg-generator
+# or
+?repo=ChanMeng666/gradient-svg-generator
+
+# Official Counter ID (with management dashboard)
+?counterId=in9G
+
+# Custom Project Counter
+?username=ChanMeng666&project=my-portfolio
+```
+
+### Common Parameters (All Display Modes)
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `displayMode` | string | `topCountries` | `topCountries`, `flagMap`, `flagsFrom`, `miniCounter` |
+| `theme` | string | `default` | `default`, `dark`, `github`, `github_dark`, `transparent` |
+| `label` | string | `Visitors` | Any text or `none` to hide |
+| `showcount` | boolean | `true` | `true`, `false` |
+| `bg` | string | Theme default | Hex color without # (e.g., `0D1117`) |
+| `text` | string | Theme default | Hex color without # (e.g., `C9D1D9`) |
+| `border` | string | Theme default | Hex color without # (e.g., `30363D`) |
+
+### Top Countries & Flags From Modes
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `columns` | number | `2` | `1-8` |
+| `maxflags` | number | `10` | `1-250` |
+| `showlabels` | boolean | `false` | `true`, `false` (show country names) |
+| `visitortype` | string | `number` | `number`, `percentage` |
+| `size` | string | `medium` | `small`, `medium`, `large` |
+
+### Flags From Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `flagsFromCountry` | string | `us` | `us`, `ca` |
+
+### Flag Map Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `mapSize` | string | `small` | `tiny`, `small`, `medium`, `large` |
+
+### Mini Counter Mode Specific
+
+| Parameter | Type | Default | Values |
+|-----------|------|---------|--------|
+| `miniDisplay` | string | `flags` | `flags` (flag count), `pageviews` (page views) |
+
+## 🖼️ Examples
+
+### Top Countries Mode (Default)
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries)
+```
+![Basic Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries)
+
+### Top Countries - Dark Theme with More Flags
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=dark&maxflags=20)
+```
+![Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=dark&maxflags=20)
+
+### Top Countries - Custom Layout (4 Columns)
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&columns=4&maxflags=16)
+```
+![4 Columns Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&columns=4&maxflags=16)
+
+### Flag Map Mode
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagMap&mapSize=medium)
+```
+![Flag Map Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagMap&mapSize=medium)
+
+### Flags From US Mode
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagsFrom&flagsFromCountry=us&theme=github_dark)
+```
+![Flags From US Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=flagsFrom&flagsFromCountry=us&theme=github_dark)
+
+### Mini Counter Mode
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=miniCounter&theme=transparent)
+```
+![Mini Counter Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=miniCounter&theme=transparent)
+
+### Top Countries - GitHub Dark with Percentage
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=github_dark&visitortype=percentage)
+```
+![GitHub Dark Theme Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&displayMode=topCountries&theme=github_dark&visitortype=percentage)
+
+### No Label
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=none)
+```
+![No Label Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=none)
+
+### Custom Label
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
+```
+![Custom Label Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&label=Profile%20Views)
+
+### Show Country Names
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
+```
+![Country Names Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showlabels=true&columns=1&maxflags=5)
+
+### Large Flags
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&size=large&columns=3)
+```
+![Large Flags Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&size=large&columns=3)
+
+### Custom Colors
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
+```
+![Custom Colors Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&bg=0D1117&text=58A6FF&border=30363D)
+
+### Hide Visitor Count
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showcount=false)
+```
+![Hide Count Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&showcount=false)
+
+### US Visitors Only
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+```
+![US Only Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&flagsfrom=us)
+
+### Per-Repository Counter
+```markdown
+<!-- Different counter for gradient-svg-generator repository -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=gradient-svg-generator)
+
+<!-- Different counter for github-visitor-counter repository -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=github-visitor-counter)
+```
+![Repo Counter Example](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&repo=gradient-svg-generator)
+
+### Official Counter ID (With Management Dashboard)
+```markdown
+<!-- Use your official Counter ID from flagcounter.com -->
+![](https://github-visitor-counter-tau.vercel.app/api?counterId=in9G&theme=github_dark)
+```
+*Note: Replace `in9G` with your own Counter ID from [flagcounter.com](https://flagcounter.com)*
+
+## 🎨 Themes
+
+### Default Theme
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=default)
+```
+- Background: `#FFFFFF`
+- Text: `#000000`
+- Border: `#CCCCCC`
+
+### Dark Theme
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=dark)
+```
+- Background: `#0D1117`
+- Text: `#C9D1D9`
+- Border: `#30363D`
+
+### GitHub Theme
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github)
+```
+- Background: `#24292E`
+- Text: `#FFFFFF`
+- Border: `#444D56`
+
+### GitHub Dark Theme
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark)
+```
+- Background: `#161B22`
+- Text: `#E6EDF3`
+- Border: `#30363D`
+
+### Transparent Theme
+```markdown
+![](https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=transparent)
+```
+- Background: `#FFFFFF`
+- Text: `#000000`
+- Border: `#FFFFFF`
+
+## 🔧 Advanced Usage
+
+### Centering the Counter
+```markdown
+<div align="center">
+  
+  ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
+  
+</div>
+```
+
+### Multiple Counters with Different Styles
+```markdown
+<!-- Light Mode -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=default)
+
+<!-- Dark Mode -->
+![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME&theme=dark)
+```
+
+### With Caption
+```markdown
+<div align="center">
+  
+  ### 🌍 Visitors from around the world
+  
+  ![](https://github-visitor-counter-tau.vercel.app/api?username=YOUR_USERNAME)
+  
+  <sub>Thank you for visiting my profile!</sub>
+  
+</div>
+```
+
+## 📡 API Reference
+
+### Base URL
+```
+https://github-visitor-counter-tau.vercel.app/api
+```
+
+### Request Method
+- `GET`
+
+### Response
+- Redirects to Flag Counter image with specified parameters
+
+### Rate Limiting
+- No explicit rate limits
+- Cached for 1 hour by default
+
+### Error Handling
+- Invalid parameters return a 400 error with usage instructions
+- Missing username returns a 400 error
+
+## 🛳 Self-Hosting
+
+You can deploy your own instance of GitHub Visitor Counter:
+
+### Deploy to Vercel
+
+1. Fork this repository
+2. Create a [Vercel account](https://vercel.com)
+3. Import your forked repository
+4. Deploy with one click
+
+[Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/ChanMeng666/github-visitor-counter)
+
+### Local Development
+
+```bash
+# Clone the repository
+git clone https://github.com/ChanMeng666/github-visitor-counter.git
+
+# Navigate to project directory
+cd github-visitor-counter
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## ⌨️ Development
+
+### Development Scripts
+
+```bash
+# Development
+npm run dev          # Start development server with Vercel CLI
+npm run deploy       # Deploy to production
+
+# Testing
+npm test            # Run tests (if implemented)
+npm run lint        # Run linting (if configured)
+
+# Build
+npm run build       # Build for production
+```
+
+### Project Structure
+
+```
+github-visitor-counter/
+├── src/
+│   ├── app/                           # Next.js App Router
+│   │   ├── api/
+│   │   │   └── route.ts               # Main API endpoint (Next.js API Route)
+│   │   ├── dashboard/
+│   │   │   └── page.tsx               # Interactive configuration dashboard
+│   │   ├── api-help/
+│   │   │   └── page.tsx               # API documentation page
+│   │   ├── page.tsx                   # Landing page
+│   │   ├── layout.tsx                 # Root layout with metadata
+│   │   └── globals.css                # Global styles with Tailwind
+│   ├── components/                    # React components
+│   │   ├── ui/                        # shadcn/ui components
+│   │   │   ├── button.tsx, card.tsx, input.tsx, select.tsx, etc.
+│   │   │   └── animated-gradient-with-svg.tsx  # Custom SVG gradient
+│   │   ├── landing/                   # Landing page sections
+│   │   │   ├── hero-section.tsx       # Hero with CTA
+│   │   │   ├── features-section.tsx   # Feature highlights
+│   │   │   ├── live-demo-section.tsx  # Live demo showcase
+│   │   │   ├── how-it-works-section.tsx # Process explanation
+│   │   │   ├── cta-section.tsx        # Call to action
+│   │   │   └── infinite-flags-scroll.tsx # Animated flag carousel
+│   │   ├── dashboard/                 # Dashboard components
+│   │   │   ├── config-form.tsx        # Configuration form
+│   │   │   ├── preview-panel.tsx      # Live preview
+│   │   │   ├── action-toolbar.tsx     # Quick actions & presets
+│   │   │   ├── config-progress.tsx    # Progress indicator
+│   │   │   ├── config-import-export.tsx # JSON import/export
+│   │   │   ├── keyboard-shortcuts-help.tsx # Shortcuts docs
+│   │   │   └── page-header.tsx        # Dashboard header
+│   │   ├── shared/                    # Shared components
+│   │   │   ├── header.tsx             # Site header with navigation
+│   │   │   └── footer.tsx             # Site footer
+│   │   └── hooks/
+│   │       └── use-debounced-dimensions.tsx # Custom React hook
+│   ├── lib/                           # Utility libraries (TypeScript)
+│   │   ├── constants.ts               # Themes, defaults, display modes
+│   │   ├── params.ts                  # Parameter parsing & validation
+│   │   ├── flagCounter.ts             # URL generation (4 display modes)
+│   │   └── utils.ts                   # Helper utilities
+│   └── hooks/                         # Custom React hooks
+│       └── useKeyboardShortcuts.ts    # Keyboard shortcut management
+├── public/                            # Static assets
+│   ├── *.svg                          # Logos and icon files
+│   ├── llms.txt                       # AI integration guide
+│   ├── robots.txt                     # SEO configuration
+│   └── sitemap.xml                    # Sitemap
+├── package.json                       # Next.js 15, React 19, TypeScript
+├── next.config.mjs                    # Next.js configuration
+├── tailwind.config.ts                 # Tailwind CSS configuration
+├── tsconfig.json                      # TypeScript configuration
+└── vercel.json                        # Vercel CORS configuration
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help improve this project:
+
+### Development Process
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes**: Follow the existing code style
+4. **Test thoroughly**: Ensure all functionality works
+5. **Submit a pull request**: Provide clear description of changes
+
+### Contribution Guidelines
+
+- Follow existing code patterns and conventions
+- Add tests for new features when possible
+- Update documentation for any API changes
+- Ensure backward compatibility
+
+### Areas for Contribution
+
+- 🎨 **New Themes**: Add more visual themes
+- 🌐 **Internationalization**: Add support for more languages
+- 📊 **Analytics**: Improve visitor tracking features
+- 🔧 **Performance**: Optimize loading and caching
+- 📚 **Documentation**: Improve guides and examples
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+
+## 🙏 Credits
+
+- Created by [Chan Meng](https://github.com/ChanMeng666)
+- Powered by [Flag Counter](https://flagcounter.com)
+- Hosted on [Vercel](https://vercel.com)
+
+## ⚠️ Important Notes
+
+1. **Multiple Counter Types**:
+   - **Profile Counter** (`username` only): Tracks all visitors to your profile
+   - **Repository Counter** (`username` + `repo`): Independent tracking for each repository
+   - **Official Counter ID** (`counterId`): Use your own Flag Counter ID with management dashboard
+   - **Custom Project** (`username` + `project`): For non-GitHub projects
+
+2. **Real Visitor Tracking**: Flag Counter tracks **real visitors** over time. New counters start from zero and accumulate as people visit your README. This is not a bug!
+
+3. **Four Display Modes**: Choose from Top Countries, Flag Map, Flags From (US/CA), or Mini Counter to suit your needs.
+
+4. **Privacy**: No personal data is stored. The service only tracks country-level visitor information.
+
+5. **Caching**: Counters are cached for 1 hour (s-maxage=3600) to improve performance.
+
+6. **Unique Counters**: Each parameter combination creates a unique counter on Flag Counter's server.
+
+7. **TypeScript**: Full type safety with TypeScript throughout the codebase.
+
+8. **Modern Stack**: Built with Next.js 15, React 19, Tailwind CSS 3, and shadcn/ui.
+
+9. **Interactive Dashboard**: Use `/dashboard` for a visual configuration experience with live preview.
+
+10. **Keyboard Shortcuts**: Dashboard supports shortcuts like Ctrl+R (reset), Ctrl+E (export), Ctrl+K (copy markdown).
+
+## 💬 Support
+
+If you have any questions or need help, please:
+- Open an [issue](https://github.com/ChanMeng666/github-visitor-counter/issues)
+- Check existing issues for solutions
+- Read the documentation carefully
+
+---
+
+<div align="center">
+<strong>🌍 Building Global Connections for GitHub Developers 🚀</strong>
+<br/>
+<em>Showcasing the worldwide reach of open source</em>
+<br/><br/>
+
+⭐ **Star us on GitHub** • 🎨 **Try Live Demo** • 🐛 **Report Issues** • 💡 **Request Features** • 🤝 **Contribute**
+
+<br/><br/>
+
+**Made with ❤️ by [Chan Meng](https://github.com/ChanMeng666)**
+
+<img src="https://github-visitor-counter-tau.vercel.app/api?username=ChanMeng666&theme=github_dark&columns=4&maxflags=12&label=Thank%20You" alt="Thank You">
+
+</div>
+
+---
+
+
+---
+
+<!-- CHAN MENG PERSONAL BRAND -->
+<div align="center">
+  <a href="https://github.com/ChanMeng666" target="_blank">
+    <img src="../.github/brand/chan-meng-logo.svg" alt="Chan Meng" width="160" />
+  </a>
+
+  <p><strong>Chan Meng</strong><br/>Need a custom app like this one? I build them — let's talk.</p>
+
+</div>
+<!-- /CHAN MENG PERSONAL BRAND -->
